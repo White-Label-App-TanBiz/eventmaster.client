@@ -34,7 +34,7 @@ export interface ProductPlan {
   description: string;
   price: number;
   currency: string;
-  billingCycle: "monthly" | "yearly";
+  billingCycle: "monthly" | "quarterly" | "yearly";
   features: string[];
   maxOrganizers: number;
   maxEvents: number;

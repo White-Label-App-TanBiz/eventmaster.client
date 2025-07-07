@@ -4,9 +4,12 @@ import { ProductPlan } from "../types";
 import { useNotifications } from "../hooks/useNotifications";
 import { useCurrency } from "../contexts/CurrencyContext";
 
+type ProductPlanCreate = Omit<ProductPlan, "id" | "createdAt">;
+type ProductPlanUpdate = Omit<ProductPlan, "createdAt">;
+
 interface AddProductPlanFormProps {
-  initialData?: Omit<ProductPlan, "createdAt">;
-  onSubmit: (plan: Omit<ProductPlan, "createdAt"> | Omit<ProductPlan, "createdAt">) => void;
+  initialData?: ProductPlanUpdate;
+  onSubmit: (plan: ProductPlanCreate | ProductPlanUpdate) => void;
   onCancel: () => void;
 }
 
@@ -98,21 +101,36 @@ const AddProductPlanForm: React.FC<AddProductPlanFormProps> = ({ initialData, on
     if (validateForm()) {
       const validFeatures = formData.features.filter((feature) => feature.trim() !== "");
       try {
-        const planData = {
-          ...(isEditing && { id: formData.id }),
-          name: formData.name,
-          description: formData.description,
-          price: formData.price,
-          currency: formData.currency,
-          billingCycle: formData.billingCycle,
-          features: validFeatures,
-          maxOrganizers: parseInt(formData.maxOrganizers),
-          maxEvents: parseInt(formData.maxEvents),
-          maxAttendees: parseInt(formData.maxAttendees),
-          isActive: formData.isActive,
-        };
-
-        onSubmit(planData);
+        if (isEditing) {
+          const planData: ProductPlanUpdate = {
+            id: formData.id,
+            name: formData.name,
+            description: formData.description,
+            price: formData.price,
+            currency: formData.currency,
+            billingCycle: formData.billingCycle,
+            features: validFeatures,
+            maxOrganizers: parseInt(formData.maxOrganizers),
+            maxEvents: parseInt(formData.maxEvents),
+            maxAttendees: parseInt(formData.maxAttendees),
+            isActive: formData.isActive,
+          };
+          onSubmit(planData);
+        } else {
+          const planData: ProductPlanCreate = {
+            name: formData.name,
+            description: formData.description,
+            price: formData.price,
+            currency: formData.currency,
+            billingCycle: formData.billingCycle,
+            features: validFeatures,
+            maxOrganizers: parseInt(formData.maxOrganizers),
+            maxEvents: parseInt(formData.maxEvents),
+            maxAttendees: parseInt(formData.maxAttendees),
+            isActive: formData.isActive,
+          };
+          onSubmit(planData);
+        }
 
         const actionText = isEditing ? "updated" : "created";
         showSuccess(`Plan ${actionText} successfully!`, `Your product plan has been ${actionText}.`);
