@@ -4,22 +4,22 @@ import { Loader2 } from "lucide-react";
 import { useAuth } from "../../../contexts/AuthContext";
 import PageLayout from "../../../layouts/page";
 
-const ClientAdmins = lazy(() => import("./components/ClientAdmins"));
-const ProductPlans = lazy(() => import("./components/ProductPlans"));
-const PaymentGateways = lazy(() => import("./components/PaymentGateways"));
-const Transactions = lazy(() => import("./components/Transactions"));
-const Analytics = lazy(() => import("./components/Analytics"));
-const ApiLicenses = lazy(() => import("./components/ApiLicenses"));
-const Settings = lazy(() => import("./components/Settings"));
-const OrganizersPage = lazy(() => import("./components/OrganizersPage"));
-const WhiteLabelSettings = lazy(() => import("./components/WhiteLabelSettings"));
-const EventsPage = lazy(() => import("./components/EventsPage"));
-const AttendeesPage = lazy(() => import("./components/AttendeesPage"));
-const SubAdminsPage = lazy(() => import("./components/SubAdminsPage"));
-const MyEventsPage = lazy(() => import("./components/MyEventsPage"));
-const AccountSettings = lazy(() => import("./components/AccountSettings"));
+const Customers = lazy(() => import("./components/customers"));
+const Plans = lazy(() => import("./components/plans"));
+const Payments = lazy(() => import("./components/payments"));
+const Transactions = lazy(() => import("./components/transactions"));
+const Analytics = lazy(() => import("./components/analytics"));
+const Licenses = lazy(() => import("./components/licenses"));
+const Settings = lazy(() => import("./components/settings"));
+const Organizers = lazy(() => import("./components/organizers"));
+const WhiteLabel = lazy(() => import("./components/whiteLabel"));
+const Events = lazy(() => import("./components/events"));
+const Attendees = lazy(() => import("./components/attendees"));
+const Admins = lazy(() => import("./components/admins"));
+const MyEvents = lazy(() => import("./components/myEvents"));
+const AccountSettings = lazy(() => import("./components/accountSettings"));
 
-const SubDashboard: React.FC = () => {
+const SubDashboardPage: React.FC = () => {
   const { submenuId } = useParams<{ submenuId: string }>();
   const { user } = useAuth();
 
@@ -27,13 +27,13 @@ const SubDashboard: React.FC = () => {
     switch (menu) {
       case "customers":
         if (user?.role !== "super_admin") return <Navigate to="/dashboard" replace />;
-        return <ClientAdmins />;
+        return <Customers />;
       case "plans":
         if (user?.role !== "super_admin" && user?.role !== "client_admin") return <Navigate to="/dashboard" replace />;
-        return <ProductPlans />;
+        return <Plans />;
       case "payments":
         if (user?.role !== "super_admin" && user?.role !== "client_admin") return <Navigate to="/dashboard" replace />;
-        return <PaymentGateways />;
+        return <Payments />;
       case "transactions":
         if (user?.role !== "super_admin" && user?.role !== "client_admin") return <Navigate to="/dashboard" replace />;
         return <Transactions />;
@@ -42,28 +42,28 @@ const SubDashboard: React.FC = () => {
         return <Analytics />;
       case "licenses":
         if (user?.role !== "super_admin") return <Navigate to="/dashboard" replace />;
-        return <ApiLicenses />;
+        return <Licenses />;
       case "settings":
         if (user?.role !== "super_admin") return <Navigate to="/dashboard" replace />;
         return <Settings />;
       case "organizers":
         if (user?.role !== "client_admin") return <Navigate to="/dashboard" replace />;
-        return <OrganizersPage />;
+        return <Organizers />;
       case "white-label":
         if (user?.role !== "client_admin") return <Navigate to="/dashboard" replace />;
-        return <WhiteLabelSettings />;
+        return <WhiteLabel />;
       case "events":
         if (user?.role !== "organizer" && user?.role !== "admin") return <Navigate to="/dashboard" replace />;
-        return <EventsPage />;
+        return <Events />;
       case "attendees":
         if (user?.role !== "organizer" && user?.role !== "admin") return <Navigate to="/dashboard" replace />;
-        return <AttendeesPage />;
+        return <Attendees />;
       case "admins":
         if (user?.role !== "organizer") return <Navigate to="/dashboard" replace />;
-        return <SubAdminsPage />;
+        return <Admins />;
       case "my-events":
         if (user?.role !== "attendee") return <Navigate to="/dashboard" replace />;
-        return <MyEventsPage />;
+        return <MyEvents />;
       case "account-settings":
         return <AccountSettings />;
       default:
@@ -91,4 +91,4 @@ const SubDashboard: React.FC = () => {
   );
 };
 
-export default SubDashboard;
+export default SubDashboardPage;

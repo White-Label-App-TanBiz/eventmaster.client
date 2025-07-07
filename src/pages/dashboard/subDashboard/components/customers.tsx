@@ -11,7 +11,7 @@ import LoadingSpinner from "../../../../components/LoadingSpinner";
 import LoadingButton from "../../../../components/LoadingButton";
 import ConfirmationModal from "../../../../components/ConfirmationModal";
 
-const ClientAdmins: React.FC = () => {
+const Customers: React.FC = () => {
   const { formatCurrency } = useCurrency();
   const { isLoading, withLoading } = useLoadingState();
   const { isOpen, options, isLoading: confirmationLoading, confirm, handleConfirm, handleCancel } = useConfirmation();
@@ -82,8 +82,6 @@ const ClientAdmins: React.FC = () => {
   };
 
   const handleClientAction = async (action: string, client: any) => {
-    const actionKey = `${action}-${client.id}`;
-
     try {
       switch (action) {
         case "view":
@@ -178,7 +176,7 @@ const ClientAdmins: React.FC = () => {
     });
   };
 
-  const handleSendEmail = async (emailData: any) => {
+  const handleSendEmail = async () => {
     await withLoading("send-email", async () => {
       await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate email sending
       showSuccess("Email sent", `Email has been sent to ${selectedClientForModal.name} successfully.`);
@@ -385,12 +383,13 @@ const ClientAdmins: React.FC = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                const formData = new FormData(e.target as HTMLFormElement);
-                const emailData = {
-                  subject: formData.get("subject"),
-                  message: formData.get("message"),
-                };
-                handleSendEmail(emailData);
+                // const formData = new FormData(e.target as HTMLFormElement);
+                // const emailData = {
+                //   subject: formData.get("subject"),
+                //   message: formData.get("message"),
+                // };
+                // handleSendEmail(emailData);
+                handleSendEmail();
               }}
               className="space-y-4"
             >
@@ -786,4 +785,4 @@ const ClientAdmins: React.FC = () => {
   );
 };
 
-export default ClientAdmins;
+export default Customers;

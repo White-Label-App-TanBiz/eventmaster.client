@@ -3,7 +3,7 @@ import { Calendar, Search, Filter, MapPin, Clock, Users, ExternalLink, Download,
 import { useNotifications } from "../../../../hooks/useNotifications";
 import LoadingButton from "../../../../components/LoadingButton";
 
-const MyEventsPage: React.FC = () => {
+const MyEvents: React.FC = () => {
   const { showSuccess, showInfo } = useNotifications();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("all");
@@ -304,4 +304,4 @@ const MyEventsPage: React.FC = () => {
   );
 };
 
-export default MyEventsPage;
+export default MyEvents;

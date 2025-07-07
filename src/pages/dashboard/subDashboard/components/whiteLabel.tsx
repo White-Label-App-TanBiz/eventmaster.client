@@ -5,7 +5,7 @@ import { useNotifications } from "../../../../hooks/useNotifications";
 import LoadingButton from "../../../../components/LoadingButton";
 import ColorPicker from "../../../../components/ColorPicker";
 
-const WhiteLabelSettings: React.FC = () => {
+const WhiteLabel: React.FC = () => {
   const { isLoading, withLoading } = useLoadingState();
   const { showSuccess, showError, showInfo } = useNotifications();
 
@@ -667,4 +667,4 @@ const WhiteLabelSettings: React.FC = () => {
   );
 };
 
-export default WhiteLabelSettings;
+export default WhiteLabel;

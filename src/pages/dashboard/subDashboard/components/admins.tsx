@@ -7,7 +7,7 @@ import LoadingButton from "../../../../components/LoadingButton";
 import Modal from "../../../../components/Modal";
 import InviteAdminForm from "../../../../components/InviteAdminForm";
 
-const SubAdminsPage: React.FC = () => {
+const Admins: React.FC = () => {
   const { showSuccess, showInfo } = useNotifications();
   const { confirm, isOpen, options, handleConfirm, handleCancel, isLoading: confirmationLoading } = useConfirmation();
   const [searchTerm, setSearchTerm] = useState("");
@@ -445,4 +445,4 @@ const SubAdminsPage: React.FC = () => {
   );
 };
 
-export default SubAdminsPage;
+export default Admins;

@@ -8,7 +8,7 @@ import { UserRole, useAuth } from "../../contexts/AuthContext";
 import { useNotifications } from "../../hooks/useNotifications";
 import LoadingButton from "../../components/LoadingButton";
 
-const NewDashboard: React.FC = () => {
+const DashboardPage: React.FC = () => {
   const { user } = useAuth();
   const { formatCurrency } = useCurrency();
   const { showInfo } = useNotifications();
@@ -929,4 +929,4 @@ const NewDashboard: React.FC = () => {
   return <PageLayout>{renderContent(user?.role || "super_admin")}</PageLayout>;
 };
 
-export default NewDashboard;
+export default DashboardPage;

@@ -117,7 +117,7 @@ const mockApiLicenses: ApiLicense[] = [
   },
 ];
 
-const ApiLicenses: React.FC = () => {
+const Licenses: React.FC = () => {
   const { isLoading, withLoading } = useLoadingState();
   const { isOpen, options, isLoading: confirmationLoading, confirm, handleConfirm, handleCancel } = useConfirmation();
   const { showSuccess, showError, showInfo } = useNotifications();
@@ -794,4 +794,4 @@ const ApiLicenses: React.FC = () => {
   );
 };
 
-export default ApiLicenses;
+export default Licenses;

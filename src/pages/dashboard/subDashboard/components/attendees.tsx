@@ -4,7 +4,7 @@ import { useNotifications } from "../../../../hooks/useNotifications";
 import Popover from "../../../../components/Popover";
 import LoadingButton from "../../../../components/LoadingButton";
 
-const AttendeesPage: React.FC = () => {
+const Attendees: React.FC = () => {
   const { showSuccess, showInfo } = useNotifications();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("all");
@@ -273,4 +273,4 @@ const AttendeesPage: React.FC = () => {
   );
 };
 
-export default AttendeesPage;
+export default Attendees;

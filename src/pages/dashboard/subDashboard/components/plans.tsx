@@ -18,7 +18,7 @@ type PlanUsageStats = {
   [planName: string]: { subscribers: number; growth: number };
 };
 
-const ProductPlans: React.FC = () => {
+const Plans: React.FC = () => {
   const { formatCurrency } = useCurrency();
   const { isLoading, withLoading } = useLoadingState();
   const { isOpen, options, isLoading: confirmationLoading, confirm, handleConfirm, handleCancel } = useConfirmation();
@@ -352,4 +352,4 @@ const ProductPlans: React.FC = () => {
   );
 };
 
-export default ProductPlans;
+export default Plans;

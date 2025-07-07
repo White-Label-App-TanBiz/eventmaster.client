@@ -10,7 +10,7 @@ import LoadingButton from "../../../../components/LoadingButton";
 import LoadingSpinner from "../../../../components/LoadingSpinner";
 import ConfirmationModal from "../../../../components/ConfirmationModal";
 
-const PaymentGateways: React.FC = () => {
+const Payments: React.FC = () => {
   const { formatCurrency } = useCurrency();
   const { isLoading, withLoading } = useLoadingState();
   const { isOpen, options, isLoading: confirmationLoading, confirm, handleConfirm, handleCancel } = useConfirmation();
@@ -594,4 +594,4 @@ const PaymentGateways: React.FC = () => {
   );
 };
 
-export default PaymentGateways;
+export default Payments;

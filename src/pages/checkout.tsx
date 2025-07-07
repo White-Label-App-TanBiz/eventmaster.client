@@ -17,7 +17,7 @@ const CheckoutPage: React.FC = () => {
   const { showSuccess, showError } = useNotifications();
 
   const [plan, setPlan] = useState<ProductPlan | null>(null);
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "quarterly" | "yearly">("monthly");
   const [paymentMethod, setPaymentMethod] = useState<"card" | "paypal">("card");
   const [formData, setFormData] = useState({
     // Company Information

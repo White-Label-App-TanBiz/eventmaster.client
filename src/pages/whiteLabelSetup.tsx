@@ -36,7 +36,7 @@ interface FormData {
   [key: string]: any;
 }
 
-const WhiteLabelInstallationFlow: React.FC = () => {
+const WhiteLabelSetupPage: React.FC = () => {
   const navigate = useNavigate();
   const { showSuccess, showInfo, showError } = useNotifications();
   const { isLoading, withLoading } = useLoadingState();
@@ -1520,4 +1520,4 @@ DATABASE_URL=postgresql://${formData.dbUser || "postgres"}:${formData.dbPassword
   );
 };
 
-export default WhiteLabelInstallationFlow;
+export default WhiteLabelSetupPage;

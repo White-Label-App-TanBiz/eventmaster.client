@@ -7,7 +7,7 @@ import LoadingButton from "../../../../components/LoadingButton";
 import Modal from "../../../../components/Modal";
 import AddEventForm from "../../../../components/AddEventForm";
 
-const EventsPage: React.FC = () => {
+const Events: React.FC = () => {
   const { showSuccess, showInfo } = useNotifications();
   const { confirm, isOpen, options, handleConfirm, handleCancel, isLoading: confirmationLoading } = useConfirmation();
   const [searchTerm, setSearchTerm] = useState("");
@@ -346,4 +346,4 @@ const EventsPage: React.FC = () => {
   );
 };
 
-export default EventsPage;
+export default Events;
