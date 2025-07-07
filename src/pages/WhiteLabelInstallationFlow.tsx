@@ -5,6 +5,37 @@ import { useNotifications } from "../hooks/useNotifications";
 import { useLoadingState } from "../hooks/useLoadingState";
 import LoadingButton from "../components/LoadingButton";
 
+interface FormData {
+  nodeVersion: string;
+  npmVersion: string;
+  webServer: string;
+  companyName: string;
+  companyEmail: string;
+  adminEmail: string;
+  adminPassword: string;
+  customDomain: string;
+  smtpHost: string;
+  smtpPort: string;
+  smtpUser: string;
+  smtpPassword: string;
+  smtpEncryption: string;
+  dbHost: string;
+  dbPort: string;
+  dbName: string;
+  dbUser: string;
+  dbPassword: string;
+  deploymentMethod: string;
+  sslMethod: string;
+  serverChecklist: {
+    nodeInstalled: boolean;
+    npmInstalled: boolean;
+    webServerInstalled: boolean;
+    gitInstalled: boolean;
+    sshAccess: boolean;
+  };
+  [key: string]: any;
+}
+
 const WhiteLabelInstallationFlow: React.FC = () => {
   const navigate = useNavigate();
   const { showSuccess, showInfo, showError } = useNotifications();
@@ -12,7 +43,7 @@ const WhiteLabelInstallationFlow: React.FC = () => {
 
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     // Server Environment
     nodeVersion: "18.x",
     npmVersion: "9.x",
