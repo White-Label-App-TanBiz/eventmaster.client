@@ -97,7 +97,11 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
                     <div className="text-xs text-gray-500 dark:text-zinc-400">{user?.email}</div>
                   </div>
                   <div className="py-1">
-                    <Link to="/dashboard/account-settings" onClick={() => setShowUserMenu(false)} className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors">
+                    <Link
+                      to="/dashboard/account-settings"
+                      onClick={() => setShowUserMenu(false)}
+                      className="w-full flex items-center space-x-3 px-4 py-2 text-sm text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+                    >
                       <Settings className="w-4 h-4" />
                       <span>Account Settings</span>
                     </Link>

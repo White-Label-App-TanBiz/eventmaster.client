@@ -2,11 +2,8 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import PublicHeader from "./PublicHeader";
 import PublicFooter from "./PublicFooter";
-import { useTheme } from "../../contexts/ThemeContext";
 
 const PublicLayout: React.FC = () => {
-  const { theme } = useTheme();
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-zinc-950 text-gray-900 dark:text-white transition-colors">
       <PublicHeader />

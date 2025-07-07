@@ -1,6 +1,6 @@
-import React from 'react';
-import { AlertTriangle, CheckCircle, Info, X } from 'lucide-react';
-import Modal from './Modal';
+import React from "react";
+import { AlertTriangle, CheckCircle, Info } from "lucide-react";
+import Modal from "./Modal";
 
 export interface ConfirmationModalProps {
   isOpen: boolean;
@@ -10,30 +10,20 @@ export interface ConfirmationModalProps {
   message: string;
   confirmText?: string;
   cancelText?: string;
-  type?: 'danger' | 'warning' | 'info' | 'success';
+  type?: "danger" | "warning" | "info" | "success";
   isLoading?: boolean;
 }
 
-const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
-  isOpen,
-  onClose,
-  onConfirm,
-  title,
-  message,
-  confirmText = 'Confirm',
-  cancelText = 'Cancel',
-  type = 'warning',
-  isLoading = false
-}) => {
+const ConfirmationModal: React.FC<ConfirmationModalProps> = ({ isOpen, onClose, onConfirm, title, message, confirmText = "Confirm", cancelText = "Cancel", type = "warning", isLoading = false }) => {
   const getIcon = () => {
     switch (type) {
-      case 'danger':
+      case "danger":
         return <AlertTriangle className="w-6 h-6 text-red-600" />;
-      case 'warning':
+      case "warning":
         return <AlertTriangle className="w-6 h-6 text-yellow-600" />;
-      case 'success':
+      case "success":
         return <CheckCircle className="w-6 h-6 text-emerald-600" />;
-      case 'info':
+      case "info":
       default:
         return <Info className="w-6 h-6 text-blue-600" />;
     }
@@ -41,33 +31,27 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
 
   const getConfirmButtonStyles = () => {
     switch (type) {
-      case 'danger':
-        return 'bg-red-600 hover:bg-red-700 focus:ring-red-500';
-      case 'warning':
-        return 'bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500';
-      case 'success':
-        return 'bg-emerald-600 hover:bg-emerald-700 focus:ring-emerald-500';
-      case 'info':
+      case "danger":
+        return "bg-red-600 hover:bg-red-700 focus:ring-red-500";
+      case "warning":
+        return "bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500";
+      case "success":
+        return "bg-emerald-600 hover:bg-emerald-700 focus:ring-emerald-500";
+      case "info":
       default:
-        return 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500';
+        return "bg-blue-600 hover:bg-blue-700 focus:ring-blue-500";
     }
   };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="" size="sm">
       <div className="text-center">
-        <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100 dark:bg-zinc-800 mb-4">
-          {getIcon()}
-        </div>
-        
-        <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-          {title}
-        </h3>
-        
-        <p className="text-sm text-gray-500 dark:text-zinc-400 mb-6">
-          {message}
-        </p>
-        
+        <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100 dark:bg-zinc-800 mb-4">{getIcon()}</div>
+
+        <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">{title}</h3>
+
+        <p className="text-sm text-gray-500 dark:text-zinc-400 mb-6">{message}</p>
+
         <div className="flex space-x-3 justify-center">
           <button
             type="button"
@@ -77,7 +61,7 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
           >
             {cancelText}
           </button>
-          
+
           <button
             type="button"
             onClick={onConfirm}

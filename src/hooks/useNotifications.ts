@@ -30,28 +30,28 @@ export const useNotifications = () => {
     (title: string, message?: string, options?: Partial<Notification>) => {
       return addNotification({ type: "success", title, message, ...options });
     },
-    [addNotification]
+    [addNotification],
   );
 
   const showError = useCallback(
     (title: string, message?: string, options?: Partial<Notification>) => {
       return addNotification({ type: "error", title, message, ...options });
     },
-    [addNotification]
+    [addNotification],
   );
 
   const showInfo = useCallback(
     (title: string, message?: string, options?: Partial<Notification>) => {
       return addNotification({ type: "info", title, message, ...options });
     },
-    [addNotification]
+    [addNotification],
   );
 
   const showWarning = useCallback(
     (title: string, message?: string, options?: Partial<Notification>) => {
       return addNotification({ type: "warning", title, message, ...options });
     },
-    [addNotification]
+    [addNotification],
   );
 
   return {

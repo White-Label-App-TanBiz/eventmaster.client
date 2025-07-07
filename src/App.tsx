@@ -7,14 +7,15 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
 import { useNotifications } from "./hooks/useNotifications";
 import ProtectedRoute from "./components/ProtectedRoute";
-import LoginPage from "./components/LoginPage";
-import CheckoutPage from "./components/CheckoutPage";
-import ThankYouPage from "./components/ThankYouPage";
 import NotificationSystem from "./components/NotificationSystem";
 
+import CheckoutPage from "./pages/CheckoutPage";
+import ThankYouPage from "./pages/ThankYouPage";
+import WhiteLabelInstallationFlow from "./pages/WhiteLabelInstallationFlow";
+
+import LoginPage from "./pages/LoginPage";
 import NewDashboard from "./pages/dashboard";
 import SubDashboard from "./pages/dashboard/subs";
-import WhiteLabelInstallationFlow from "./components/WhiteLabelInstallationFlow";
 
 // import PublicEventsPage from "./components/public/PublicEventsPage";
 // import PublicEventDetailsPage from "./components/public/PublicEventDetailsPage";

@@ -18,7 +18,7 @@ export const useLoadingState = () => {
     (key: string) => {
       return loadingStates[key] || false;
     },
-    [loadingStates]
+    [loadingStates],
   );
 
   const withLoading = useCallback(
@@ -31,7 +31,7 @@ export const useLoadingState = () => {
         setLoading(key, false);
       }
     },
-    [setLoading]
+    [setLoading],
   );
 
   return {

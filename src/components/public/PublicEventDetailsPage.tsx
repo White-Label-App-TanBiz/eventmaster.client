@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Calendar, Clock, MapPin, Users, Tag, Share2, Heart, ChevronDown, ChevronUp, ArrowLeft, ExternalLink, Mail, Phone, Globe, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, Share2, Heart, ChevronDown, ChevronUp, ArrowLeft, ExternalLink, Mail, Phone, Globe, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { format, parseISO, addHours } from "date-fns";
 import { mockPublicEvents } from "../../data/mockPublicEvents";
 
@@ -142,7 +142,9 @@ const PublicEventDetailsPage: React.FC = () => {
             <div className="flex items-center space-x-3">
               <button
                 onClick={toggleFavorite}
-                className={`p-2 rounded-full border ${isFavorite ? "border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20" : "border-gray-200 dark:border-zinc-700 text-gray-600 dark:text-zinc-400 hover:bg-gray-50 dark:hover:bg-zinc-800"} transition-colors`}
+                className={`p-2 rounded-full border ${
+                  isFavorite ? "border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20" : "border-gray-200 dark:border-zinc-700 text-gray-600 dark:text-zinc-400 hover:bg-gray-50 dark:hover:bg-zinc-800"
+                } transition-colors`}
                 aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
               >
                 <Heart className={`w-5 h-5 ${isFavorite ? "fill-current" : ""}`} />
@@ -257,7 +259,10 @@ const PublicEventDetailsPage: React.FC = () => {
                 </div>
               )}
 
-              <Link to={`/events/${event.id}/register`} className="w-full block text-center px-6 py-3 bg-gradient-to-r from-blue-700 to-cyan-700 hover:from-blue-800 hover:to-cyan-800 text-white rounded-lg text-base font-medium transition-all shadow-lg hover:shadow-xl">
+              <Link
+                to={`/events/${event.id}/register`}
+                className="w-full block text-center px-6 py-3 bg-gradient-to-r from-blue-700 to-cyan-700 hover:from-blue-800 hover:to-cyan-800 text-white rounded-lg text-base font-medium transition-all shadow-lg hover:shadow-xl"
+              >
                 Register Now
               </Link>
 

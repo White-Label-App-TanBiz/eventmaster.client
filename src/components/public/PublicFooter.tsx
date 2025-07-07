@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Building2, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Heart } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Building2, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Heart } from "lucide-react";
 
 const PublicFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -19,9 +19,7 @@ const PublicFooter: React.FC = () => {
                 <h1 className="text-xl font-bold text-gray-900 dark:text-white">EventMaster</h1>
               </div>
             </div>
-            <p className="text-gray-600 dark:text-zinc-400 mb-4">
-              Your all-in-one platform for discovering, managing, and attending events that matter to you.
-            </p>
+            <p className="text-gray-600 dark:text-zinc-400 mb-4">Your all-in-one platform for discovering, managing, and attending events that matter to you.</p>
             <div className="space-y-2">
               <div className="flex items-center space-x-3 text-gray-600 dark:text-zinc-400">
                 <Mail className="w-4 h-4" />

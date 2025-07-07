@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Building2, Menu, X, Sun, Moon, Calendar, Users, Info, ChevronDown } from 'lucide-react';
-import { useTheme } from '../../contexts/ThemeContext';
+import React, { useState, useRef, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Building2, Menu, X, Sun, Moon, Calendar, Users, Info, ChevronDown } from "lucide-react";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const PublicHeader: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -17,9 +17,9 @@ const PublicHeader: React.FC = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -32,9 +32,9 @@ const PublicHeader: React.FC = () => {
   };
 
   const navItems = [
-    { name: 'Events', path: '/events', icon: Calendar },
-    { name: 'About', path: '/about', icon: Info },
-    { name: 'Contact', path: '/contact', icon: Users },
+    { name: "Events", path: "/events", icon: Calendar },
+    { name: "About", path: "/about", icon: Info },
+    { name: "Contact", path: "/contact", icon: Users },
   ];
 
   return (
@@ -63,9 +63,7 @@ const PublicHeader: React.FC = () => {
                   key={item.name}
                   to={item.path}
                   className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    isActive(item.path)
-                      ? 'text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                      : 'text-gray-700 dark:text-zinc-300 hover:text-blue-700 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-zinc-800'
+                    isActive(item.path) ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20" : "text-gray-700 dark:text-zinc-300 hover:text-blue-700 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-zinc-800"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -81,9 +79,9 @@ const PublicHeader: React.FC = () => {
             <button
               onClick={toggleTheme}
               className="p-2 text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
 
             {/* Login/Dashboard button */}
@@ -98,18 +96,10 @@ const PublicHeader: React.FC = () => {
 
               {dropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-lg shadow-lg py-1 z-50 animate-fade-in">
-                  <Link
-                    to="/login"
-                    className="block px-4 py-2 text-sm text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
-                    onClick={() => setDropdownOpen(false)}
-                  >
+                  <Link to="/login" className="block px-4 py-2 text-sm text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors" onClick={() => setDropdownOpen(false)}>
                     Sign In
                   </Link>
-                  <Link
-                    to="/checkout/1"
-                    className="block px-4 py-2 text-sm text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
-                    onClick={() => setDropdownOpen(false)}
-                  >
+                  <Link to="/checkout/1" className="block px-4 py-2 text-sm text-gray-700 dark:text-zinc-300 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors" onClick={() => setDropdownOpen(false)}>
                     Create Account
                   </Link>
                 </div>
@@ -117,10 +107,7 @@ const PublicHeader: React.FC = () => {
             </div>
 
             {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
-            >
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg transition-colors">
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -128,11 +115,7 @@ const PublicHeader: React.FC = () => {
       </div>
 
       {/* Mobile menu */}
-      <div
-        className={`md:hidden fixed inset-0 z-40 bg-white dark:bg-zinc-900 transform transition-transform duration-300 ease-in-out ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
+      <div className={`md:hidden fixed inset-0 z-40 bg-white dark:bg-zinc-900 transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-zinc-800">
           <Link to="/" className="flex items-center space-x-3" onClick={closeMobileMenu}>
             <div className="p-2 bg-blue-700 rounded-lg">
@@ -142,10 +125,7 @@ const PublicHeader: React.FC = () => {
               <h1 className="text-xl font-bold text-gray-900 dark:text-white">EventMaster</h1>
             </div>
           </Link>
-          <button
-            onClick={closeMobileMenu}
-            className="p-2 text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
-          >
+          <button onClick={closeMobileMenu} className="p-2 text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg transition-colors">
             <X className="w-6 h-6" />
           </button>
         </div>
@@ -157,9 +137,7 @@ const PublicHeader: React.FC = () => {
                 key={item.name}
                 to={item.path}
                 className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                  isActive(item.path)
-                    ? 'text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                    : 'text-gray-700 dark:text-zinc-300 hover:text-blue-700 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-zinc-800'
+                  isActive(item.path) ? "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20" : "text-gray-700 dark:text-zinc-300 hover:text-blue-700 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-zinc-800"
                 }`}
                 onClick={closeMobileMenu}
               >

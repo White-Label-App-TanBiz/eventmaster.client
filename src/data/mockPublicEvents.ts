@@ -10,8 +10,8 @@ export interface PublicEvent {
   venue?: string;
   address?: string;
   directions?: string;
-  type: 'virtual' | 'physical' | 'hybrid';
-  category: 'business' | 'technology' | 'entertainment' | 'education' | 'health';
+  type: "virtual" | "physical" | "hybrid";
+  category: "business" | "technology" | "entertainment" | "education" | "health";
   price: number;
   featured?: boolean;
   image?: string;
@@ -54,7 +54,8 @@ export const mockPublicEvents: PublicEvent[] = [
     id: "1",
     title: "Tech Conference 2024",
     description: "Join us for the biggest tech conference of the year featuring keynotes from industry leaders, hands-on workshops, and networking opportunities.",
-    longDescription: "Tech Conference 2024 brings together the brightest minds in technology for an immersive two-day experience. Discover the latest innovations, gain insights from thought leaders, and connect with peers who are shaping the future of tech.\n\nThis year's conference will focus on artificial intelligence, blockchain technology, cybersecurity, and digital transformation. Whether you're a developer, executive, entrepreneur, or tech enthusiast, you'll find valuable content tailored to your interests.\n\nDay 1 will feature keynote presentations from industry pioneers, followed by breakout sessions on specialized topics. Day 2 offers hands-on workshops, panel discussions, and ample networking opportunities.",
+    longDescription:
+      "Tech Conference 2024 brings together the brightest minds in technology for an immersive two-day experience. Discover the latest innovations, gain insights from thought leaders, and connect with peers who are shaping the future of tech.\n\nThis year's conference will focus on artificial intelligence, blockchain technology, cybersecurity, and digital transformation. Whether you're a developer, executive, entrepreneur, or tech enthusiast, you'll find valuable content tailored to your interests.\n\nDay 1 will feature keynote presentations from industry pioneers, followed by breakout sessions on specialized topics. Day 2 offers hands-on workshops, panel discussions, and ample networking opportunities.",
     date: "2024-04-15",
     time: "09:00:00",
     endTime: "17:00:00",
@@ -77,7 +78,7 @@ export const mockPublicEvents: PublicEvent[] = [
       facebook: "https://facebook.com/techcorpevents",
       twitter: "https://twitter.com/techcorpevents",
       instagram: "https://instagram.com/techcorpevents",
-      linkedin: "https://linkedin.com/company/techcorpevents"
+      linkedin: "https://linkedin.com/company/techcorpevents",
     },
     attendees: 450,
     capacity: 800,
@@ -86,79 +87,80 @@ export const mockPublicEvents: PublicEvent[] = [
       {
         type: "Early Bird",
         price: 199,
-        description: "Limited availability, 30% off regular price"
+        description: "Limited availability, 30% off regular price",
       },
       {
         type: "Standard",
         price: 299,
-        description: "Full conference access"
+        description: "Full conference access",
       },
       {
         type: "VIP",
         price: 499,
-        description: "Includes exclusive networking event and premium seating"
-      }
+        description: "Includes exclusive networking event and premium seating",
+      },
     ],
     schedule: [
       {
         time: "09:00 AM",
         title: "Registration & Breakfast",
-        description: "Pick up your badge and enjoy a continental breakfast"
+        description: "Pick up your badge and enjoy a continental breakfast",
       },
       {
         time: "10:00 AM",
         title: "Opening Keynote",
         description: "The Future of AI in Business",
-        speaker: "Sarah Johnson, CEO of AI Innovations"
+        speaker: "Sarah Johnson, CEO of AI Innovations",
       },
       {
         time: "11:30 AM",
         title: "Panel Discussion",
         description: "Blockchain Revolution: Beyond Cryptocurrency",
-        speaker: "Panel of Industry Experts"
+        speaker: "Panel of Industry Experts",
       },
       {
         time: "01:00 PM",
         title: "Lunch Break",
-        description: "Networking lunch provided for all attendees"
+        description: "Networking lunch provided for all attendees",
       },
       {
         time: "02:00 PM",
         title: "Workshop Sessions",
-        description: "Multiple tracks available"
+        description: "Multiple tracks available",
       },
       {
         time: "04:30 PM",
         title: "Closing Remarks",
-        description: "Summary and preview of day 2"
-      }
+        description: "Summary and preview of day 2",
+      },
     ],
     speakers: [
       {
         name: "Sarah Johnson",
         title: "CEO, AI Innovations",
         bio: "Sarah is a pioneer in artificial intelligence with over 15 years of experience in the field.",
-        image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop"
+        image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
       },
       {
         name: "Michael Chen",
         title: "CTO, Blockchain Solutions",
         bio: "Michael has led the development of several groundbreaking blockchain platforms.",
-        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop"
+        image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
       },
       {
         name: "Emma Rodriguez",
         title: "Director of Cybersecurity, TechDefend",
         bio: "Emma is an expert in cybersecurity strategy and implementation for enterprise organizations.",
-        image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop"
-      }
-    ]
+        image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop",
+      },
+    ],
   },
   {
     id: "2",
     title: "Virtual Marketing Summit",
     description: "Learn the latest digital marketing strategies from industry experts in this comprehensive online summit.",
-    longDescription: "The Virtual Marketing Summit brings together marketing professionals from around the world to share insights, strategies, and best practices in the ever-evolving digital landscape.\n\nThis online event features live presentations, interactive workshops, and virtual networking opportunities, all accessible from the comfort of your home or office. No travel required!\n\nTopics covered include content marketing, SEO, social media strategy, email marketing, conversion optimization, analytics, and emerging trends in digital marketing. Whether you're a seasoned marketing professional or just starting your career, this summit offers valuable knowledge to help you stay ahead of the curve.",
+    longDescription:
+      "The Virtual Marketing Summit brings together marketing professionals from around the world to share insights, strategies, and best practices in the ever-evolving digital landscape.\n\nThis online event features live presentations, interactive workshops, and virtual networking opportunities, all accessible from the comfort of your home or office. No travel required!\n\nTopics covered include content marketing, SEO, social media strategy, email marketing, conversion optimization, analytics, and emerging trends in digital marketing. Whether you're a seasoned marketing professional or just starting your career, this summit offers valuable knowledge to help you stay ahead of the curve.",
     date: "2024-04-20",
     time: "10:00:00",
     endTime: "16:00:00",
@@ -174,7 +176,7 @@ export const mockPublicEvents: PublicEvent[] = [
     organizerWebsite: "https://www.digitalmarketingassoc.org",
     organizerSocial: {
       twitter: "https://twitter.com/digimktassoc",
-      linkedin: "https://linkedin.com/company/digitalmarketingassociation"
+      linkedin: "https://linkedin.com/company/digitalmarketingassociation",
     },
     attendees: 320,
     registrationEndDate: "2024-04-19",
@@ -182,26 +184,26 @@ export const mockPublicEvents: PublicEvent[] = [
       {
         type: "Basic Access",
         price: 149,
-        description: "Access to all sessions and recordings"
+        description: "Access to all sessions and recordings",
       },
       {
         type: "Premium Access",
         price: 249,
-        description: "Basic access plus exclusive Q&A sessions and downloadable resources"
-      }
+        description: "Basic access plus exclusive Q&A sessions and downloadable resources",
+      },
     ],
     speakers: [
       {
         name: "David Wilson",
         title: "Head of Content Strategy, ContentPro",
-        bio: "David has helped hundreds of companies develop effective content marketing strategies."
+        bio: "David has helped hundreds of companies develop effective content marketing strategies.",
       },
       {
         name: "Lisa Anderson",
         title: "Social Media Director, SocialBoost",
-        bio: "Lisa specializes in creating viral social media campaigns for major brands."
-      }
-    ]
+        bio: "Lisa specializes in creating viral social media campaigns for major brands.",
+      },
+    ],
   },
   {
     id: "3",
@@ -227,14 +229,14 @@ export const mockPublicEvents: PublicEvent[] = [
       {
         type: "General Admission",
         price: 25,
-        description: "Access to all expo areas and general sessions"
+        description: "Access to all expo areas and general sessions",
       },
       {
         type: "VIP Pass",
         price: 75,
-        description: "General admission plus exclusive workshops and goodie bag"
-      }
-    ]
+        description: "General admission plus exclusive workshops and goodie bag",
+      },
+    ],
   },
   {
     id: "4",
@@ -253,7 +255,7 @@ export const mockPublicEvents: PublicEvent[] = [
     organizer: "Venture Capital Partners",
     organizerWebsite: "https://www.vcpartners.com",
     attendees: 200,
-    capacity: 250
+    capacity: 250,
   },
   {
     id: "5",
@@ -271,7 +273,7 @@ export const mockPublicEvents: PublicEvent[] = [
     organizer: "Code Academy",
     organizerEmail: "workshops@codeacademy.com",
     attendees: 75,
-    capacity: 100
+    capacity: 100,
   },
   {
     id: "6",
@@ -291,7 +293,7 @@ export const mockPublicEvents: PublicEvent[] = [
     organizerWebsite: "https://www.soundwaveproductions.com",
     organizerSocial: {
       instagram: "https://instagram.com/soundwaveprod",
-      twitter: "https://twitter.com/soundwaveprod"
+      twitter: "https://twitter.com/soundwaveprod",
     },
     attendees: 5000,
     capacity: 7500,
@@ -299,19 +301,19 @@ export const mockPublicEvents: PublicEvent[] = [
       {
         type: "Single Day Pass",
         price: 75,
-        description: "Access for one day of your choice"
+        description: "Access for one day of your choice",
       },
       {
         type: "Full Festival Pass",
         price: 150,
-        description: "Access to all three days"
+        description: "Access to all three days",
       },
       {
         type: "VIP Experience",
         price: 350,
-        description: "Full access plus VIP lounge, premium viewing areas, and exclusive perks"
-      }
-    ]
+        description: "Full access plus VIP lounge, premium viewing areas, and exclusive perks",
+      },
+    ],
   },
   {
     id: "7",
@@ -330,7 +332,7 @@ export const mockPublicEvents: PublicEvent[] = [
     organizer: "Healthcare Innovation Network",
     organizerEmail: "events@healthcareinnovation.org",
     attendees: 180,
-    capacity: 200
+    capacity: 200,
   },
   {
     id: "8",
@@ -348,7 +350,7 @@ export const mockPublicEvents: PublicEvent[] = [
     organizer: "Financial Literacy Foundation",
     organizerWebsite: "https://www.finlitfoundation.org",
     attendees: 250,
-    capacity: 500
+    capacity: 500,
   },
   {
     id: "9",
@@ -366,10 +368,10 @@ export const mockPublicEvents: PublicEvent[] = [
     image: "https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     organizer: "EcoStyle Collective",
     organizerSocial: {
-      instagram: "https://instagram.com/ecostylecollective"
+      instagram: "https://instagram.com/ecostylecollective",
     },
     attendees: 120,
-    capacity: 150
+    capacity: 150,
   },
   {
     id: "10",
@@ -389,6 +391,6 @@ export const mockPublicEvents: PublicEvent[] = [
     organizerEmail: "contact@mentalhealthalliance.org",
     organizerPhone: "+1 (555) 234-5678",
     attendees: 300,
-    capacity: 400
-  }
+    capacity: 400,
+  },
 ];

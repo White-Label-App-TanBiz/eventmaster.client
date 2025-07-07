@@ -188,7 +188,12 @@ const LoginPage: React.FC = () => {
           </div>
           <div className="mt-6 space-y-3">
             {demoAccounts.map((account, index) => (
-              <button key={index} onClick={() => fillDemoAccount(account.email)} disabled={isSubmitting} className="w-full text-left p-3 border border-gray-200 dark:border-zinc-700 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+              <button
+                key={index}
+                onClick={() => fillDemoAccount(account.email)}
+                disabled={isSubmitting}
+                className="w-full text-left p-3 border border-gray-200 dark:border-zinc-700 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-sm font-medium text-gray-900 dark:text-white">{account.role}</div>

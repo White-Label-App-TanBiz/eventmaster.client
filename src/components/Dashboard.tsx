@@ -90,7 +90,11 @@ const Dashboard: React.FC = () => {
                 <div className={`p-2 rounded-lg bg-opacity-10 ${stat.color.replace("text-", "bg-").replace(" dark:text-", " dark:bg-")}`}>
                   <Icon className={`w-5 h-5 lg:w-6 lg:h-6 ${stat.color}`} />
                 </div>
-                <div className={`flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium ${stat.trend === "up" ? "bg-emerald-100 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-400" : "bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-400"}`}>
+                <div
+                  className={`flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium ${
+                    stat.trend === "up" ? "bg-emerald-100 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-400" : "bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-400"
+                  }`}
+                >
                   <TrendIcon className="w-3 h-3" />
                   <span>{stat.change}</span>
                 </div>
