@@ -150,7 +150,7 @@ const Transactions: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate API call
               setTransactions((prev) => prev.map((t) => (t.id === transaction.id ? { ...t, status: "pending" } : t)));
               showSuccess("Payment retry initiated", `Payment retry has been initiated for ${transaction.clientName}.`);
-            }
+            },
           );
           break;
 
@@ -174,11 +174,11 @@ const Transactions: React.FC = () => {
                         refundAmount: transaction.amount,
                         refundDate: new Date().toISOString(),
                       }
-                    : t
-                )
+                    : t,
+                ),
               );
               showSuccess("Refund processed", `Refund of ${formatCurrency(transaction.amount)} has been processed for ${transaction.clientName}.`);
-            }
+            },
           );
           break;
 

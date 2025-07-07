@@ -95,7 +95,7 @@ const SubAdminsPage: React.FC = () => {
           },
           () => {
             showSuccess("Admin Activated", `${admin.name} has been activated.`);
-          }
+          },
         );
         break;
       case "deactivate":
@@ -109,7 +109,7 @@ const SubAdminsPage: React.FC = () => {
           },
           () => {
             showSuccess("Admin Deactivated", `${admin.name} has been deactivated.`);
-          }
+          },
         );
         break;
       case "delete":
@@ -123,7 +123,7 @@ const SubAdminsPage: React.FC = () => {
           },
           () => {
             showSuccess("Admin Removed", `${admin.name} has been removed from the team.`);
-          }
+          },
         );
         break;
     }

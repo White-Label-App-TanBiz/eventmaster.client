@@ -227,7 +227,7 @@ const ApiLicenses: React.FC = () => {
               const newApiKey = `sk_live_${Math.random().toString(36).substring(2, 15)}...`;
               setLicenses((prev) => prev.map((l) => (l.id === license.id ? { ...l, apiKey: newApiKey } : l)));
               showSuccess("API key regenerated!", `A new API key has been generated for ${license.clientName}.`);
-            }
+            },
           );
           break;
 
@@ -258,7 +258,7 @@ const ApiLicenses: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
               setLicenses((prev) => prev.map((l) => (l.id === license.id ? { ...l, status: "suspended" } : l)));
               showSuccess("License suspended", `The license for ${license.clientName} has been suspended.`);
-            }
+            },
           );
           break;
 
@@ -275,7 +275,7 @@ const ApiLicenses: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
               setLicenses((prev) => prev.map((l) => (l.id === license.id ? { ...l, status: "active" } : l)));
               showSuccess("License activated", `The license for ${license.clientName} has been activated.`);
-            }
+            },
           );
           break;
 
@@ -300,11 +300,11 @@ const ApiLicenses: React.FC = () => {
                         status: "active",
                         expiresAt: newExpiryDate.toISOString(),
                       }
-                    : l
-                )
+                    : l,
+                ),
               );
               showSuccess("License renewed", `The license for ${license.clientName} has been renewed for another year.`);
-            }
+            },
           );
           break;
 
@@ -321,7 +321,7 @@ const ApiLicenses: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
               setLicenses((prev) => prev.map((l) => (l.id === license.id ? { ...l, status: "revoked" } : l)));
               showSuccess("License revoked", `The license for ${license.clientName} has been permanently revoked.`);
-            }
+            },
           );
           break;
 

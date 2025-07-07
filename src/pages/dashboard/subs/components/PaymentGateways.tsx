@@ -19,7 +19,7 @@ const PaymentGateways: React.FC = () => {
   const [selectedGateway, setSelectedGateway] = useState(mockPaymentGateways[0]);
   const [gateways, setGateways] = useState(mockPaymentGateways);
   const [manualInstructions, setManualInstructions] = useState(
-    "Please send payment via bank transfer to:\n\nBank: Example Bank\nAccount Name: EventMaster Inc.\nAccount Number: 123456789\nRouting Number: 987654321\nReference: Invoice #{invoice_number}\n\nPlease email payment confirmation to billing@eventmaster.com"
+    "Please send payment via bank transfer to:\n\nBank: Example Bank\nAccount Name: EventMaster Inc.\nAccount Number: 123456789\nRouting Number: 987654321\nReference: Invoice #{invoice_number}\n\nPlease email payment confirmation to billing@eventmaster.com",
   );
 
   const getGatewayIcon = (name: string) => {
@@ -73,7 +73,7 @@ const PaymentGateways: React.FC = () => {
               }
 
               showSuccess("Gateway enabled!", `${getGatewayName(gateway.name)} has been enabled and is now available for processing payments.`);
-            }
+            },
           );
           break;
 
@@ -97,7 +97,7 @@ const PaymentGateways: React.FC = () => {
               }
 
               showSuccess("Gateway disabled!", `${getGatewayName(gateway.name)} has been disabled and will not process new payments.`);
-            }
+            },
           );
           break;
 

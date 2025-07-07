@@ -78,7 +78,7 @@ const ProductPlans: React.FC = () => {
 
         const actionPast = plan.isActive ? "deactivated" : "activated";
         showSuccess(`Plan ${actionPast}!`, `The plan "${plan.name}" has been ${actionPast}.`);
-      }
+      },
     );
   };
 
@@ -123,7 +123,7 @@ const ProductPlans: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
               setPlans((prev) => prev.filter((p) => p.id !== plan.id));
               showSuccess("Plan deleted!", `The plan "${plan.name}" has been removed.`);
-            }
+            },
           );
           break;
 

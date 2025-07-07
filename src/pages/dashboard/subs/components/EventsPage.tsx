@@ -151,7 +151,7 @@ const EventsPage: React.FC = () => {
           },
           () => {
             showSuccess("Event Deleted", `"${event.title}" has been deleted.`);
-          }
+          },
         );
         break;
     }

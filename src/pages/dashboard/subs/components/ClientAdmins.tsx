@@ -115,7 +115,7 @@ const ClientAdmins: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
               setClients((prev) => prev.map((c) => (c.id === client.id ? { ...c, status: "suspended" } : c)));
               showSuccess("Account suspended", `${client.name}'s account has been suspended.`);
-            }
+            },
           );
           break;
 
@@ -132,7 +132,7 @@ const ClientAdmins: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
               setClients((prev) => prev.map((c) => (c.id === client.id ? { ...c, status: "active" } : c)));
               showSuccess("Account activated", `${client.name}'s account has been activated.`);
-            }
+            },
           );
           break;
 
@@ -149,7 +149,7 @@ const ClientAdmins: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1200)); // Simulate API call
               setClients((prev) => prev.filter((c) => c.id !== client.id));
               showSuccess("Customer deleted", `${client.name} has been permanently removed.`);
-            }
+            },
           );
           break;
 

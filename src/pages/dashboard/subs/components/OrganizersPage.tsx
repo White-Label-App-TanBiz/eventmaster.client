@@ -115,7 +115,7 @@ const OrganizersPage: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
               setOrganizers((prev) => prev.map((c) => (c.id === organizer.id ? { ...c, status: "suspended" } : c)));
               showSuccess("Account suspended", `${organizer.name}'s account has been suspended.`);
-            }
+            },
           );
           break;
 
@@ -132,7 +132,7 @@ const OrganizersPage: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
               setOrganizers((prev) => prev.map((c) => (c.id === organizer.id ? { ...c, status: "active" } : c)));
               showSuccess("Account activated", `${organizer.name}'s account has been activated.`);
-            }
+            },
           );
           break;
 
@@ -149,7 +149,7 @@ const OrganizersPage: React.FC = () => {
               await new Promise((resolve) => setTimeout(resolve, 1200)); // Simulate API call
               setOrganizers((prev) => prev.filter((c) => c.id !== organizer.id));
               showSuccess("Organizer deleted", `${organizer.name} has been permanently removed.`);
-            }
+            },
           );
           break;
 

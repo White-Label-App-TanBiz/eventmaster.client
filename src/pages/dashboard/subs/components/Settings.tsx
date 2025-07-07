@@ -352,7 +352,7 @@ This email was sent to {{customer_email}}.`,
         await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate backup process
         console.log("Creating database backup");
         showSuccess("Backup started!", "Database backup has been initiated. You will receive an email when complete.");
-      }
+      },
     );
   };
 
@@ -369,7 +369,7 @@ This email was sent to {{customer_email}}.`,
         await new Promise((resolve) => setTimeout(resolve, 4000)); // Simulate restore process
         console.log("Restoring database");
         showInfo("Restore initiated", "Database restore process has been started.");
-      }
+      },
     );
   };
 
@@ -389,7 +389,7 @@ This email was sent to {{customer_email}}.`,
         setGeneralSettings((prev) => ({ ...prev, maintenanceMode: enabled }));
         const actionPast = enabled ? "enabled" : "disabled";
         showSuccess(`Maintenance mode ${actionPast}!`, `System maintenance mode has been ${actionPast}.`);
-      }
+      },
     );
   };
 

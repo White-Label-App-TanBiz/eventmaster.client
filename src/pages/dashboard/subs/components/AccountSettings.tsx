@@ -92,7 +92,7 @@ const AccountSettings: React.FC = () => {
           confirmPassword: "",
         }));
         showSuccess("Password changed!", "Your password has been updated successfully.");
-      }
+      },
     );
   };
 
@@ -120,7 +120,7 @@ const AccountSettings: React.FC = () => {
         setSecurityData((prev) => ({ ...prev, twoFactorEnabled: enabled }));
         const actionPast = enabled ? "enabled" : "disabled";
         showSuccess(`2FA ${actionPast}!`, `Two-factor authentication has been ${actionPast} for your account.`);
-      }
+      },
     );
   };
 
@@ -147,7 +147,7 @@ const AccountSettings: React.FC = () => {
         await new Promise((resolve) => setTimeout(resolve, 500)); // Simulate API call
         setProfileData((prev) => ({ ...prev, avatar: "" }));
         showSuccess("Photo removed", "Profile picture has been removed.");
-      }
+      },
     );
   };
 
