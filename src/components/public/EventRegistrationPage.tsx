@@ -69,7 +69,7 @@ const EventRegistrationPage: React.FC = () => {
     if (foundEvent && foundEvent.ticketTypes && foundEvent.ticketTypes.length > 0) {
       setFormData((prev) => ({
         ...prev,
-        ticketType: foundEvent.ticketTypes[0].type,
+        ticketType: foundEvent.ticketTypes && foundEvent.ticketTypes.length > 0 ? foundEvent.ticketTypes[0].type : "",
       }));
     }
   }, [eventId]);

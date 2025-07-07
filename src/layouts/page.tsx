@@ -21,9 +21,7 @@ const PageLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} userRole={user?.role || "super_admin"} />
         <div className="flex-1 flex flex-col lg:ml-0 overflow-hidden">
           <Header onToggleSidebar={toggleSidebar} />
-          <main className="flex-1 p-4 lg:p-6 overflow-auto">
-            <div className="max-w-7xl mx-auto">{children}</div>
-          </main>
+          <main className="flex-1 p-4 lg:p-6 overflow-auto">{children}</main>
         </div>
       </div>
     </div>

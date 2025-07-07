@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { Loader2 } from "lucide-react";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { PeriodProvider } from "./contexts/PeriodContext";
@@ -9,13 +10,13 @@ import { useNotifications } from "./hooks/useNotifications";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotificationSystem from "./components/NotificationSystem";
 
-import CheckoutPage from "./pages/CheckoutPage";
-import ThankYouPage from "./pages/ThankYouPage";
-import WhiteLabelInstallationFlow from "./pages/WhiteLabelInstallationFlow";
+const CheckoutPage = lazy(() => import("./pages/CheckoutPage"));
+const ThankYouPage = lazy(() => import("./pages/ThankYouPage"));
+const WhiteLabelInstallationFlow = lazy(() => import("./pages/WhiteLabelInstallationFlow"));
 
-import LoginPage from "./pages/LoginPage";
-import NewDashboard from "./pages/dashboard";
-import SubDashboard from "./pages/dashboard/subs";
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const NewDashboard = lazy(() => import("./pages/dashboard"));
+const SubDashboard = lazy(() => import("./pages/dashboard/subs"));
 
 // import PublicEventsPage from "./components/public/PublicEventsPage";
 // import PublicEventDetailsPage from "./components/public/PublicEventDetailsPage";
@@ -51,6 +52,17 @@ const AppRoutes: React.FC = () => {
   );
 };
 
+const AppLoading: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 flex items-center justify-center">
+      <div className="flex items-center space-x-2">
+        <Loader2 className="w-6 h-6 animate-spin text-blue-700" />
+        <span className="text-gray-600 dark:text-zinc-400">Loading...</span>
+      </div>
+    </div>
+  );
+};
+
 function App() {
   const { notifications, removeNotification } = useNotifications();
 
@@ -60,7 +72,9 @@ function App() {
         <LanguageProvider>
           <CurrencyProvider>
             <PeriodProvider>
-              <AppRoutes />
+              <Suspense fallback={<AppLoading />}>
+                <AppRoutes />
+              </Suspense>
               <NotificationSystem notifications={notifications} onRemove={removeNotification} />
             </PeriodProvider>
           </CurrencyProvider>

@@ -7,7 +7,7 @@ import { useNotifications } from "../hooks/useNotifications";
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { login, isLoading, isAuthenticated } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const { showError, showSuccess } = useNotifications();
 
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -77,17 +77,6 @@ const LoginPage: React.FC = () => {
     setFormData({ email, password: "password123" });
     showSuccess("Demo account filled", `Credentials for ${email} have been filled in.`);
   };
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 flex items-center justify-center">
-        <div className="flex items-center space-x-2">
-          <Loader2 className="w-6 h-6 animate-spin text-blue-700" />
-          <span className="text-gray-600 dark:text-zinc-400">Loading...</span>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-zinc-950 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
