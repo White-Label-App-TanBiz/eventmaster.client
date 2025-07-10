@@ -94,7 +94,6 @@ const Plans: React.FC = () => {
         case "edit":
           setEditingPlan(plan);
           break;
-
         case "duplicate":
           await withLoading(actionKey, async () => {
             await new Promise((resolve) => setTimeout(resolve, 800)); // Simulate API call
@@ -109,7 +108,6 @@ const Plans: React.FC = () => {
             showSuccess("Plan duplicated!", `A copy of "${plan.name}" has been created.`);
           });
           break;
-
         case "delete":
           confirm(
             {
@@ -126,14 +124,12 @@ const Plans: React.FC = () => {
             },
           );
           break;
-
         case "subscribers":
           await withLoading(actionKey, async () => {
             await new Promise((resolve) => setTimeout(resolve, 700)); // Simulate API call
             showSuccess("Subscriber list", `Viewing subscribers for "${plan.name}".`);
           });
           break;
-
         default:
           showError("Unknown action", "The requested action is not supported.");
           break;
@@ -195,7 +191,6 @@ const Plans: React.FC = () => {
           </LoadingButton>
         </div>
       </div>
-
       {/* Loading State for Plans */}
       {isLoading("fetch-plans") ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -233,9 +228,7 @@ const Plans: React.FC = () => {
                     <PopoverMenuItem icon={<Trash2 className="w-4 h-4" />} label="Delete Plan" onClick={() => handlePlanAction("delete", plan)} className="text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20" />
                   </Popover>
                 </div>
-
                 <p className="text-gray-600 dark:text-zinc-400 mb-6">{plan.description}</p>
-
                 <div className="mb-6">
                   <div className="flex items-baseline">
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">{displayPlanPrice(plan)}</span>
@@ -243,7 +236,6 @@ const Plans: React.FC = () => {
                   </div>
                   {plan.price === 0 && <p className="text-sm text-emerald-600 dark:text-emerald-400 mt-1">No payment required</p>}
                 </div>
-
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-gray-600 dark:text-zinc-400">Max Organizers</span>
@@ -258,7 +250,6 @@ const Plans: React.FC = () => {
                     <span className="font-medium text-gray-900 dark:text-white">{plan.maxAttendees === -1 ? "Unlimited" : plan.maxAttendees.toLocaleString()}</span>
                   </div>
                 </div>
-
                 <div className="space-y-2 mb-6">
                   <h4 className="font-medium text-gray-900 dark:text-white">Features:</h4>
                   <ul className="space-y-1">
@@ -270,7 +261,6 @@ const Plans: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-2">
                     <div className={`w-3 h-3 rounded-full ${plan.isActive ? "bg-emerald-600" : "bg-red-500"}`}></div>
@@ -280,7 +270,6 @@ const Plans: React.FC = () => {
                     {plan.isActive ? "Deactivate" : "Activate"}
                   </LoadingButton>
                 </div>
-
                 {/* Checkout Link Button */}
                 <button
                   onClick={() => handleCheckoutLink(plan)}
@@ -294,7 +283,6 @@ const Plans: React.FC = () => {
           ))}
         </div>
       )}
-
       <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-gray-200 dark:border-zinc-800">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Plan Usage Statistics</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -310,7 +298,6 @@ const Plans: React.FC = () => {
           })}
         </div>
       </div>
-
       {/* Add/Edit Plan Modal */}
       <Modal isOpen={showAddModal || !!editingPlan} onClose={handleModalClose} title={editingPlan ? "Edit Product Plan" : "Create New Product Plan"} size="lg">
         <AddProductPlanForm
@@ -335,7 +322,6 @@ const Plans: React.FC = () => {
           onCancel={handleModalClose}
         />
       </Modal>
-
       {/* Confirmation Modal */}
       <ConfirmationModal
         isOpen={isOpen}

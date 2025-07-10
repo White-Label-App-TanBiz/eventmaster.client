@@ -7,8 +7,14 @@ import { PeriodProvider } from "./contexts/PeriodContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { CurrencyProvider } from "./contexts/CurrencyContext";
 import { useNotifications } from "./hooks/useNotifications";
-import ProtectedRoute from "./components/ProtectedRoute";
 import NotificationSystem from "./components/NotificationSystem";
+import PublicLayout from "./components/public/PublicLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+const PublicEventsPage = lazy(() => import("./components/public/PublicEventsPage"));
+const PublicEventDetailsPage = lazy(() => import("./components/public/PublicEventDetailsPage"));
+const EventRegistrationPage = lazy(() => import("./components/public/EventRegistrationPage"));
+const RegistrationThankYouPage = lazy(() => import("./components/public/RegistrationThankYouPage"));
 
 const CheckoutPage = lazy(() => import("./pages/checkout"));
 const ThankYouPage = lazy(() => import("./pages/thankYou"));
@@ -21,13 +27,20 @@ const SubDashboardPage = lazy(() => import("./pages/dashboard/subDashboard"));
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
+      {/* Root redirect */}
+      <Route path="/" element={<Navigate to="/events" replace />} />
       {/* Public Routes */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/checkout/:planId" element={<CheckoutPage />} />
       <Route path="/thank-you" element={<ThankYouPage />} />
       <Route path="/white-label-setup" element={<WhiteLabelSetupPage />} />
-      {/* Root redirect */}
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      {/* Public Event Routes */}
+      <Route path="/" element={<PublicLayout />}>
+        <Route path="events" element={<PublicEventsPage />} />
+        <Route path="events/:eventId" element={<PublicEventDetailsPage />} />
+        <Route path="events/:eventId/register" element={<EventRegistrationPage />} />
+        <Route path="events/:eventId/thank-you" element={<RegistrationThankYouPage />} />
+      </Route>
       {/* New Dashboard */}
       <Route path="/dashboard" element={<ProtectedRoute />}>
         <Route index element={<DashboardPage />} />
