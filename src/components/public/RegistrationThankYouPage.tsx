@@ -10,8 +10,8 @@ interface RegistrationDetails {
   ticketType: string;
   quantity: number;
   total: number;
-  attendeeName: string;
-  attendeeEmail: string;
+  customerName: string;
+  customerEmail: string;
 }
 
 const RegistrationThankYouPage: React.FC = () => {
@@ -80,7 +80,7 @@ const RegistrationThankYouPage: React.FC = () => {
 
         <p className="text-xl text-gray-600 dark:text-zinc-400 mb-2">You're all set for {event.title}</p>
 
-        <p className="text-gray-500 dark:text-zinc-500">A confirmation email has been sent to {registrationDetails.attendeeEmail}</p>
+        <p className="text-gray-500 dark:text-zinc-500">A confirmation email has been sent to {registrationDetails.customerEmail}</p>
       </div>
 
       {/* Ticket Information */}
@@ -122,8 +122,8 @@ const RegistrationThankYouPage: React.FC = () => {
 
             <div className="space-y-3">
               <div>
-                <p className="font-medium text-gray-900 dark:text-white">Attendee</p>
-                <p className="text-gray-600 dark:text-zinc-400">{registrationDetails.attendeeName}</p>
+                <p className="font-medium text-gray-900 dark:text-white">Customer</p>
+                <p className="text-gray-600 dark:text-zinc-400">{registrationDetails.customerName}</p>
               </div>
 
               <div>
@@ -181,7 +181,7 @@ const RegistrationThankYouPage: React.FC = () => {
             <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-700 text-white flex items-center justify-center text-sm font-bold">1</div>
             <div>
               <p className="font-medium text-gray-900 dark:text-white">Check your email</p>
-              <p className="text-sm text-gray-600 dark:text-zinc-400">We've sent a confirmation email with all the details to {registrationDetails.attendeeEmail}</p>
+              <p className="text-sm text-gray-600 dark:text-zinc-400">We've sent a confirmation email with all the details to {registrationDetails.customerEmail}</p>
             </div>
           </div>
 

@@ -19,7 +19,7 @@ const PublicEventsPage: React.FC = () => {
       event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
       event.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      event.organizer.toLowerCase().includes(searchTerm.toLowerCase());
+      event.provider.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchesCategory = selectedCategory === "all" || event.category === selectedCategory;
 
@@ -269,7 +269,7 @@ const PublicEventsPage: React.FC = () => {
                         <div className="text-lg font-bold text-gray-900 dark:text-white">{event.price === 0 ? "Free" : `$${event.price}`}</div>
                         <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-zinc-400">
                           <Users className="w-4 h-4" />
-                          <span>{event.attendees} attending</span>
+                          <span>{event.customers} attending</span>
                         </div>
                       </div>
                     </div>
@@ -313,7 +313,7 @@ const PublicEventsPage: React.FC = () => {
                           <div className="text-lg font-bold text-gray-900 dark:text-white">{event.price === 0 ? "Free" : `$${event.price}`}</div>
                           <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-zinc-400">
                             <Users className="w-4 h-4" />
-                            <span>{event.attendees} attending</span>
+                            <span>{event.customers} attending</span>
                           </div>
                         </div>
                       </div>

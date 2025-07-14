@@ -388,7 +388,7 @@ const Transactions: React.FC = () => {
                 <thead className="bg-gray-50 dark:bg-zinc-800">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-zinc-400 uppercase tracking-wider">Transaction</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-zinc-400 uppercase tracking-wider">Customer</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-zinc-400 uppercase tracking-wider">Client Admin</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-zinc-400 uppercase tracking-wider">Amount</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-zinc-400 uppercase tracking-wider">Status</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-zinc-400 uppercase tracking-wider">Gateway</th>
@@ -529,10 +529,10 @@ const Transactions: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Customer Information</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Client Admin Information</h3>
                 <div className="space-y-3">
                   <div>
-                    <label className="text-sm font-medium text-gray-500 dark:text-zinc-400">Customer</label>
+                    <label className="text-sm font-medium text-gray-500 dark:text-zinc-400">Client Admin</label>
                     <p className="text-gray-900 dark:text-white">{selectedTransaction.clientName}</p>
                   </div>
                   <div>

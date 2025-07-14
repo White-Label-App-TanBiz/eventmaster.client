@@ -4,17 +4,17 @@ import { Loader2 } from "lucide-react";
 import { useAuth } from "../../../contexts/AuthContext";
 import PageLayout from "../../../layouts/page";
 
-const Customers = lazy(() => import("./components/customers"));
+const ClientAdmins = lazy(() => import("./components/clientAdmins"));
 const Plans = lazy(() => import("./components/plans"));
 const Payments = lazy(() => import("./components/payments"));
 const Transactions = lazy(() => import("./components/transactions"));
 const Analytics = lazy(() => import("./components/analytics"));
 const Licenses = lazy(() => import("./components/licenses"));
 const Settings = lazy(() => import("./components/settings"));
-const Organizers = lazy(() => import("./components/organizers"));
+const Providers = lazy(() => import("./components/providers"));
 const WhiteLabel = lazy(() => import("./components/whiteLabel"));
 const Events = lazy(() => import("./components/events"));
-const Attendees = lazy(() => import("./components/attendees"));
+const Customers = lazy(() => import("./components/customers"));
 const Admins = lazy(() => import("./components/admins"));
 const MyEvents = lazy(() => import("./components/myEvents"));
 const AccountSettings = lazy(() => import("./components/accountSettings"));
@@ -25,9 +25,9 @@ const SubDashboardPage: React.FC = () => {
 
   const renderContent = (menu: string | undefined) => {
     switch (menu) {
-      case "customers":
+      case "client-admins":
         if (user?.role !== "super_admin") return <Navigate to="/dashboard" replace />;
-        return <Customers />;
+        return <ClientAdmins />;
       case "plans":
         if (user?.role !== "super_admin" && user?.role !== "client_admin") return <Navigate to="/dashboard" replace />;
         return <Plans />;
@@ -38,7 +38,7 @@ const SubDashboardPage: React.FC = () => {
         if (user?.role !== "super_admin" && user?.role !== "client_admin") return <Navigate to="/dashboard" replace />;
         return <Transactions />;
       case "analytics":
-        if (user?.role !== "super_admin" && user?.role !== "client_admin" && user?.role !== "organizer") return <Navigate to="/dashboard" replace />;
+        if (user?.role !== "super_admin" && user?.role !== "client_admin" && user?.role !== "provider") return <Navigate to="/dashboard" replace />;
         return <Analytics />;
       case "licenses":
         if (user?.role !== "super_admin") return <Navigate to="/dashboard" replace />;
@@ -46,23 +46,23 @@ const SubDashboardPage: React.FC = () => {
       case "settings":
         if (user?.role !== "super_admin") return <Navigate to="/dashboard" replace />;
         return <Settings />;
-      case "organizers":
+      case "providers":
         if (user?.role !== "client_admin") return <Navigate to="/dashboard" replace />;
-        return <Organizers />;
+        return <Providers />;
       case "white-label":
         if (user?.role !== "client_admin") return <Navigate to="/dashboard" replace />;
         return <WhiteLabel />;
       case "events":
-        if (user?.role !== "organizer" && user?.role !== "admin") return <Navigate to="/dashboard" replace />;
+        if (user?.role !== "provider" && user?.role !== "admin") return <Navigate to="/dashboard" replace />;
         return <Events />;
-      case "attendees":
-        if (user?.role !== "organizer" && user?.role !== "admin") return <Navigate to="/dashboard" replace />;
-        return <Attendees />;
+      case "customers":
+        if (user?.role !== "provider" && user?.role !== "admin") return <Navigate to="/dashboard" replace />;
+        return <Customers />;
       case "admins":
-        if (user?.role !== "organizer") return <Navigate to="/dashboard" replace />;
+        if (user?.role !== "provider") return <Navigate to="/dashboard" replace />;
         return <Admins />;
       case "my-events":
-        if (user?.role !== "attendee") return <Navigate to="/dashboard" replace />;
+        if (user?.role !== "customer") return <Navigate to="/dashboard" replace />;
         return <MyEvents />;
       case "account-settings":
         return <AccountSettings />;

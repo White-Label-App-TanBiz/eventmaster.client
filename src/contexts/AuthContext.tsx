@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-export type UserRole = "super_admin" | "client_admin" | "organizer" | "admin" | "attendee";
+export type UserRole = "super_admin" | "client_admin" | "provider" | "admin" | "customer";
 
 export interface User {
   id: string;
@@ -46,16 +46,16 @@ const mockUsers: Record<string, User> = {
     role: "client_admin",
     avatar: "SJ",
     company: "TechCorp Events",
-    permissions: ["plans.manage", "organizers.manage", "payments.manage", "analytics.view", "branding.manage"],
+    permissions: ["plans.manage", "providers.manage", "payments.manage", "analytics.view", "branding.manage"],
   },
-  "organizer@events.com": {
+  "provider@events.com": {
     id: "3",
     name: "Michael Chen",
-    email: "organizer@events.com",
-    role: "organizer",
+    email: "provider@events.com",
+    role: "provider",
     avatar: "MC",
     company: "Event Solutions",
-    permissions: ["events.manage", "attendees.manage", "admins.manage", "analytics.view"],
+    permissions: ["events.manage", "customers.manage", "admins.manage", "analytics.view"],
   },
   "staff@eventmaster.com": {
     id: "4",
@@ -63,13 +63,13 @@ const mockUsers: Record<string, User> = {
     email: "staff@eventmaster.com",
     role: "admin",
     avatar: "ER",
-    permissions: ["events.view", "attendees.view", "events.edit"],
+    permissions: ["events.view", "customers.view", "events.edit"],
   },
-  "attendee@example.com": {
+  "customer@example.com": {
     id: "5",
     name: "John Doe",
-    email: "attendee@example.com",
-    role: "attendee",
+    email: "customer@example.com",
+    role: "customer",
     avatar: "JD",
     permissions: ["events.register", "profile.manage"],
   },

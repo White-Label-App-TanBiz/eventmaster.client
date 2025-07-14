@@ -25,21 +25,21 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, userRole }) => {
 
   const getMenuItems = () => {
     const items = [
-      { id: "dashboard", label: t("nav.dashboard"), icon: Home, path: "/dashboard", roles: ["super_admin", "client_admin", "organizer", "admin", "attendee"] },
-      { id: "customers", label: t("nav.customers"), icon: Users, path: "/dashboard/customers", roles: ["super_admin"] },
+      { id: "dashboard", label: t("nav.dashboard"), icon: Home, path: "/dashboard", roles: ["super_admin", "client_admin", "provider", "admin", "customer"] },
+      { id: "client-admins", label: t("nav.clientAdmins"), icon: Users, path: "/dashboard/client-admins", roles: ["super_admin"] },
       { id: "plans", label: t("nav.plans"), icon: Package, path: "/dashboard/plans", roles: ["super_admin", "client_admin"] },
       { id: "payments", label: t("nav.payments"), icon: CreditCard, path: "/dashboard/payments", roles: ["super_admin", "client_admin"] },
       { id: "transactions", label: t("nav.transactions"), icon: Receipt, path: "/dashboard/transactions", roles: ["super_admin", "client_admin"] },
-      { id: "analytics", label: t("nav.analytics"), icon: BarChart3, path: "/dashboard/analytics", roles: ["super_admin", "client_admin", "organizer"] },
+      { id: "analytics", label: t("nav.analytics"), icon: BarChart3, path: "/dashboard/analytics", roles: ["super_admin", "client_admin", "provider"] },
       { id: "licenses", label: t("nav.licenses"), icon: Key, path: "/dashboard/licenses", roles: ["super_admin"] },
       { id: "settings", label: t("nav.settings"), icon: Settings, path: "/dashboard/settings", roles: ["super_admin"] },
-      { id: "organizers", label: "Organizers", icon: Users, path: "/dashboard/organizers", roles: ["client_admin"] },
+      { id: "providers", label: "Providers", icon: Users, path: "/dashboard/providers", roles: ["client_admin"] },
       { id: "white-label", label: "White-label", icon: Palette, path: "/dashboard/white-label", roles: ["client_admin"] },
-      { id: "events", label: "Events", icon: Calendar, path: "/dashboard/events", roles: ["organizer", "admin"] },
-      { id: "attendees", label: "Attendees", icon: UserCheck, path: "/dashboard/attendees", roles: ["organizer", "admin"] },
-      { id: "admins", label: "Sub Admins", icon: Users, path: "/dashboard/admins", roles: ["organizer"] },
-      { id: "my-events", label: "My Events", icon: Calendar, path: "/dashboard/my-events", roles: ["attendee"] },
-      { id: "account-settings", label: "Account Settings", icon: User, path: "/dashboard/account-settings", roles: ["super_admin", "client_admin", "organizer", "admin", "attendee"] },
+      { id: "events", label: "Events", icon: Calendar, path: "/dashboard/events", roles: ["provider", "admin"] },
+      { id: "customers", label: "Customers", icon: UserCheck, path: "/dashboard/customers", roles: ["provider", "admin"] },
+      { id: "admins", label: "Sub Admins", icon: Users, path: "/dashboard/admins", roles: ["provider"] },
+      { id: "my-events", label: "My Events", icon: Calendar, path: "/dashboard/my-events", roles: ["customer"] },
+      { id: "account-settings", label: "Account Settings", icon: User, path: "/dashboard/account-settings", roles: ["super_admin", "client_admin", "provider", "admin", "customer"] },
     ];
 
     return items.filter((item) => item.roles.includes(userRole));
@@ -56,13 +56,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, userRole }) => {
       case "super_admin":
         return "Super Admin";
       case "client_admin":
-        return "Customer";
-      case "organizer":
-        return "Organizer";
+        return "Client Admin";
+      case "provider":
+        return "Provider";
       case "admin":
         return "Admin";
-      case "attendee":
-        return "Attendee";
+      case "customer":
+        return "Customer";
       default:
         return role;
     }

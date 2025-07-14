@@ -26,9 +26,9 @@ const AddProductPlanForm: React.FC<AddProductPlanFormProps> = ({ initialData, on
     currency: "USD",
     billingCycle: "monthly" as "monthly" | "quarterly" | "yearly",
     features: [""],
-    maxOrganizers: "1" as string, // Changed to string to allow -1 input
+    maxProviders: "1" as string, // Changed to string to allow -1 input
     maxEvents: "1" as string, // Changed to string to allow -1 input
-    maxAttendees: "100" as string, // Changed to string to allow -1 input
+    maxCustomers: "100" as string, // Changed to string to allow -1 input
     isActive: true,
   });
 
@@ -45,9 +45,9 @@ const AddProductPlanForm: React.FC<AddProductPlanFormProps> = ({ initialData, on
         currency: initialData.currency,
         billingCycle: initialData.billingCycle,
         features: initialData.features.length > 0 ? initialData.features : [""],
-        maxOrganizers: initialData.maxOrganizers.toString(),
+        maxProviders: initialData.maxProviders.toString(),
         maxEvents: initialData.maxEvents.toString(),
-        maxAttendees: initialData.maxAttendees.toString(),
+        maxCustomers: initialData.maxCustomers.toString(),
         isActive: initialData.isActive,
       });
     }
@@ -68,10 +68,10 @@ const AddProductPlanForm: React.FC<AddProductPlanFormProps> = ({ initialData, on
       newErrors.price = "Price cannot be negative";
     }
 
-    // Validate maxOrganizers
-    const maxOrganizers = parseInt(formData.maxOrganizers);
-    if (isNaN(maxOrganizers) || (maxOrganizers !== -1 && maxOrganizers <= 0)) {
-      newErrors.maxOrganizers = "Must be -1 (unlimited) or a positive number";
+    // Validate maxProviders
+    const maxProviders = parseInt(formData.maxProviders);
+    if (isNaN(maxProviders) || (maxProviders !== -1 && maxProviders <= 0)) {
+      newErrors.maxProviders = "Must be -1 (unlimited) or a positive number";
     }
 
     // Validate maxEvents
@@ -80,10 +80,10 @@ const AddProductPlanForm: React.FC<AddProductPlanFormProps> = ({ initialData, on
       newErrors.maxEvents = "Must be -1 (unlimited) or a positive number";
     }
 
-    // Validate maxAttendees
-    const maxAttendees = parseInt(formData.maxAttendees);
-    if (isNaN(maxAttendees) || (maxAttendees !== -1 && maxAttendees <= 0)) {
-      newErrors.maxAttendees = "Must be -1 (unlimited) or a positive number";
+    // Validate maxCustomers
+    const maxCustomers = parseInt(formData.maxCustomers);
+    if (isNaN(maxCustomers) || (maxCustomers !== -1 && maxCustomers <= 0)) {
+      newErrors.maxCustomers = "Must be -1 (unlimited) or a positive number";
     }
 
     const validFeatures = formData.features.filter((feature) => feature.trim() !== "");
@@ -110,9 +110,9 @@ const AddProductPlanForm: React.FC<AddProductPlanFormProps> = ({ initialData, on
             currency: formData.currency,
             billingCycle: formData.billingCycle,
             features: validFeatures,
-            maxOrganizers: parseInt(formData.maxOrganizers),
+            maxProviders: parseInt(formData.maxProviders),
             maxEvents: parseInt(formData.maxEvents),
-            maxAttendees: parseInt(formData.maxAttendees),
+            maxCustomers: parseInt(formData.maxCustomers),
             isActive: formData.isActive,
           };
           onSubmit(planData);
@@ -124,9 +124,9 @@ const AddProductPlanForm: React.FC<AddProductPlanFormProps> = ({ initialData, on
             currency: formData.currency,
             billingCycle: formData.billingCycle,
             features: validFeatures,
-            maxOrganizers: parseInt(formData.maxOrganizers),
+            maxProviders: parseInt(formData.maxProviders),
             maxEvents: parseInt(formData.maxEvents),
-            maxAttendees: parseInt(formData.maxAttendees),
+            maxCustomers: parseInt(formData.maxCustomers),
             isActive: formData.isActive,
           };
           onSubmit(planData);
@@ -299,19 +299,19 @@ const AddProductPlanForm: React.FC<AddProductPlanFormProps> = ({ initialData, on
         <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Plan Limits</h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-2">Max Organizers *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-2">Max Providers *</label>
             <input
               type="text"
-              value={formData.maxOrganizers}
-              onChange={(e) => handleInputChange("maxOrganizers", e.target.value)}
+              value={formData.maxProviders}
+              onChange={(e) => handleInputChange("maxProviders", e.target.value)}
               className={`w-full px-3 py-2 border rounded-lg bg-white dark:bg-zinc-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-700 focus:border-transparent transition-all ${
-                errors.maxOrganizers ? "border-red-500" : "border-gray-300 dark:border-zinc-700"
+                errors.maxProviders ? "border-red-500" : "border-gray-300 dark:border-zinc-700"
               }`}
               placeholder="-1 for unlimited"
             />
-            {errors.maxOrganizers && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.maxOrganizers}</p>}
+            {errors.maxProviders && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.maxProviders}</p>}
             <p className="mt-1 text-xs text-gray-500 dark:text-zinc-400">Enter -1 for unlimited, or a positive number</p>
-            <p className="mt-1 text-xs text-blue-600 dark:text-blue-400">Preview: {displayLimitValue(formData.maxOrganizers)}</p>
+            <p className="mt-1 text-xs text-blue-600 dark:text-blue-400">Preview: {displayLimitValue(formData.maxProviders)}</p>
           </div>
 
           <div>
@@ -331,19 +331,19 @@ const AddProductPlanForm: React.FC<AddProductPlanFormProps> = ({ initialData, on
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-2">Max Attendees *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-zinc-300 mb-2">Max Customers *</label>
             <input
               type="text"
-              value={formData.maxAttendees}
-              onChange={(e) => handleInputChange("maxAttendees", e.target.value)}
+              value={formData.maxCustomers}
+              onChange={(e) => handleInputChange("maxCustomers", e.target.value)}
               className={`w-full px-3 py-2 border rounded-lg bg-white dark:bg-zinc-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-700 focus:border-transparent transition-all ${
-                errors.maxAttendees ? "border-red-500" : "border-gray-300 dark:border-zinc-700"
+                errors.maxCustomers ? "border-red-500" : "border-gray-300 dark:border-zinc-700"
               }`}
               placeholder="-1 for unlimited"
             />
-            {errors.maxAttendees && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.maxAttendees}</p>}
+            {errors.maxCustomers && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.maxCustomers}</p>}
             <p className="mt-1 text-xs text-gray-500 dark:text-zinc-400">Enter -1 for unlimited, or a positive number</p>
-            <p className="mt-1 text-xs text-blue-600 dark:text-blue-400">Preview: {displayLimitValue(formData.maxAttendees)}</p>
+            <p className="mt-1 text-xs text-blue-600 dark:text-blue-400">Preview: {displayLimitValue(formData.maxCustomers)}</p>
           </div>
         </div>
       </div>

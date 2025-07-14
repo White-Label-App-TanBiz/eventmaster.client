@@ -129,7 +129,7 @@ This email was sent to {{user_email}}.`,
       id: "event_reminder",
       name: "Event Reminder",
       subject: "Reminder: {{event_name}} is tomorrow!",
-      content: `Hi {{attendee_name}},
+      content: `Hi {{customer_name}},
 
 This is a friendly reminder that you're registered for {{event_name}}.
 
@@ -145,15 +145,15 @@ What to bring:
 
 We're looking forward to seeing you there!
 
-If you need to make any changes to your registration or have questions, please contact the event organizer at {{organizer_email}}.
+If you need to make any changes to your registration or have questions, please contact the event provider at {{provider_email}}.
 
 Best regards,
-{{organizer_name}}
+{{provider_name}}
 {{company_name}}
 
 ---
-This email was sent to {{attendee_email}}.`,
-      variables: ["attendee_name", "attendee_email", "event_name", "event_date", "event_time", "event_location", "organizer_name", "organizer_email", "company_name"],
+This email was sent to {{customer_email}}.`,
+      variables: ["customer_name", "customer_email", "event_name", "event_date", "event_time", "event_location", "provider_name", "provider_email", "company_name"],
       enabled: true,
     },
     {

@@ -47,7 +47,7 @@ const mockApiLicenses: ApiLicense[] = [
     status: "active",
     plan: "Professional",
     environment: "production",
-    permissions: ["events.read", "events.write", "attendees.read", "analytics.read"],
+    permissions: ["events.read", "events.write", "customers.read", "analytics.read"],
     rateLimit: {
       requestsPerMinute: 1000,
       requestsPerDay: 50000,
@@ -73,7 +73,7 @@ const mockApiLicenses: ApiLicense[] = [
     status: "active",
     plan: "Enterprise",
     environment: "production",
-    permissions: ["events.read", "events.write", "attendees.read", "attendees.write", "analytics.read", "analytics.write", "admin.read"],
+    permissions: ["events.read", "events.write", "customers.read", "customers.write", "analytics.read", "analytics.write", "admin.read"],
     rateLimit: {
       requestsPerMinute: 5000,
       requestsPerDay: 250000,
@@ -99,7 +99,7 @@ const mockApiLicenses: ApiLicense[] = [
     status: "expired",
     plan: "Starter",
     environment: "staging",
-    permissions: ["events.read", "attendees.read"],
+    permissions: ["events.read", "customers.read"],
     rateLimit: {
       requestsPerMinute: 100,
       requestsPerDay: 5000,

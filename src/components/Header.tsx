@@ -41,13 +41,13 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
       case "super_admin":
         return "Super Admin";
       case "client_admin":
-        return "Customer";
-      case "organizer":
-        return "Organizer";
+        return "Client Admin";
+      case "provider":
+        return "Provider";
       case "admin":
         return "Admin";
-      case "attendee":
-        return "Attendee";
+      case "customer":
+        return "Customer";
       default:
         return role;
     }

@@ -67,10 +67,10 @@ const LoginPage: React.FC = () => {
 
   const demoAccounts = [
     { email: "admin@eventmaster.com", role: "Super Admin", description: "Full system access" },
-    { email: "client@techcorp.com", role: "Client Admin", description: "Manage product plans and organizers" },
-    { email: "organizer@events.com", role: "Organizer", description: "Manage events and attendees" },
-    { email: "staff@eventmaster.com", role: "Admin", description: "Help organizer to manage events" },
-    { email: "attendee@example.com", role: "Attendee", description: "Register for events and receive notifications" },
+    { email: "client@techcorp.com", role: "Client Admin", description: "Manage product plans and providers" },
+    { email: "provider@events.com", role: "Provider", description: "Manage events and customers" },
+    { email: "staff@eventmaster.com", role: "Admin", description: "Help provider to manage events" },
+    { email: "customer@example.com", role: "Customer", description: "Register for events and receive notifications" },
   ];
 
   const fillDemoAccount = (email: string) => {

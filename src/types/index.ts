@@ -2,7 +2,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  role: "super_admin" | "client_admin" | "organizer" | "admin" | "attendee";
+  role: "super_admin" | "client_admin" | "provider" | "admin" | "customer";
   status: "active" | "inactive" | "pending" | "suspended";
   createdAt: string;
   lastLogin?: string;
@@ -36,9 +36,9 @@ export interface ProductPlan {
   currency: string;
   billingCycle: "monthly" | "quarterly" | "yearly";
   features: string[];
-  maxOrganizers: number;
+  maxProviders: number;
   maxEvents: number;
-  maxAttendees: number;
+  maxCustomers: number;
   isActive: boolean;
   createdAt: string;
 }
@@ -88,7 +88,7 @@ export interface Analytics {
   totalClientAdmins: number;
   activeClientAdmins: number;
   totalEvents: number;
-  totalAttendees: number;
+  totalCustomers: number;
   conversionRate: number;
   churnRate: number;
 }

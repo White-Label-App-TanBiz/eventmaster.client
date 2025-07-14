@@ -66,7 +66,7 @@ const Plans: React.FC = () => {
     confirm(
       {
         title: `${actionText} Plan`,
-        message: `Are you sure you want to ${action} the "${plan.name}" plan? ${plan.isActive ? "Customers will no longer be able to subscribe to this plan." : "This plan will become available for new subscriptions."}`,
+        message: `Are you sure you want to ${action} the "${plan.name}" plan? ${plan.isActive ? "Client Admins will no longer be able to subscribe to this plan." : "This plan will become available for new subscriptions."}`,
         confirmText: `${actionText} Plan`,
         cancelText: "Cancel",
         type: plan.isActive ? "warning" : "success",
@@ -238,16 +238,16 @@ const Plans: React.FC = () => {
                 </div>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600 dark:text-zinc-400">Max Organizers</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{plan.maxOrganizers === -1 ? "Unlimited" : plan.maxOrganizers}</span>
+                    <span className="text-gray-600 dark:text-zinc-400">Max Providers</span>
+                    <span className="font-medium text-gray-900 dark:text-white">{plan.maxProviders === -1 ? "Unlimited" : plan.maxProviders}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-gray-600 dark:text-zinc-400">Max Events</span>
                     <span className="font-medium text-gray-900 dark:text-white">{plan.maxEvents === -1 ? "Unlimited" : plan.maxEvents}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600 dark:text-zinc-400">Max Attendees</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{plan.maxAttendees === -1 ? "Unlimited" : plan.maxAttendees.toLocaleString()}</span>
+                    <span className="text-gray-600 dark:text-zinc-400">Max Customers</span>
+                    <span className="font-medium text-gray-900 dark:text-white">{plan.maxCustomers === -1 ? "Unlimited" : plan.maxCustomers.toLocaleString()}</span>
                   </div>
                 </div>
                 <div className="space-y-2 mb-6">
@@ -311,9 +311,9 @@ const Plans: React.FC = () => {
                   currency: editingPlan.currency,
                   billingCycle: editingPlan.billingCycle,
                   features: editingPlan.features,
-                  maxOrganizers: editingPlan.maxOrganizers,
+                  maxProviders: editingPlan.maxProviders,
                   maxEvents: editingPlan.maxEvents,
-                  maxAttendees: editingPlan.maxAttendees,
+                  maxCustomers: editingPlan.maxCustomers,
                   isActive: editingPlan.isActive,
                 }
               : undefined

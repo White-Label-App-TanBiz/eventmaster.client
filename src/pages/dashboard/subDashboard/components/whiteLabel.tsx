@@ -585,7 +585,7 @@ const WhiteLabel: React.FC = () => {
                     </div>
                     <div className="p-3 border border-gray-200 dark:border-zinc-700 rounded-lg hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors cursor-pointer">
                       <div className="font-medium text-gray-900 dark:text-white mb-1">Event Confirmation</div>
-                      <div className="text-xs text-gray-500 dark:text-zinc-400">Sent when an attendee registers for an event</div>
+                      <div className="text-xs text-gray-500 dark:text-zinc-400">Sent when an customer registers for an event</div>
                     </div>
                     <div className="p-3 border border-gray-200 dark:border-zinc-700 rounded-lg hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors cursor-pointer">
                       <div className="font-medium text-gray-900 dark:text-white mb-1">Event Reminder</div>

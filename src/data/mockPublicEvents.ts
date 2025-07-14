@@ -15,19 +15,19 @@ export interface PublicEvent {
   price: number;
   featured?: boolean;
   image?: string;
-  organizer: string;
-  organizerImage?: string;
-  organizerDescription?: string;
-  organizerEmail?: string;
-  organizerPhone?: string;
-  organizerWebsite?: string;
-  organizerSocial?: {
+  provider: string;
+  providerImage?: string;
+  providerDescription?: string;
+  providerEmail?: string;
+  providerPhone?: string;
+  providerWebsite?: string;
+  providerSocial?: {
     facebook?: string;
     twitter?: string;
     instagram?: string;
     linkedin?: string;
   };
-  attendees: number;
+  customers: number;
   capacity?: number;
   registrationEndDate?: string;
   ticketTypes?: Array<{
@@ -68,19 +68,19 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 299,
     featured: true,
     image: "https://images.pexels.com/photos/2833037/pexels-photo-2833037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "TechCorp Events",
-    organizerImage: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop",
-    organizerDescription: "TechCorp Events specializes in organizing high-quality technology conferences and workshops around the world.",
-    organizerEmail: "info@techcorpevents.com",
-    organizerPhone: "+1 (555) 123-4567",
-    organizerWebsite: "https://www.techcorpevents.com",
-    organizerSocial: {
+    provider: "TechCorp Events",
+    providerImage: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop",
+    providerDescription: "TechCorp Events specializes in organizing high-quality technology conferences and workshops around the world.",
+    providerEmail: "info@techcorpevents.com",
+    providerPhone: "+1 (555) 123-4567",
+    providerWebsite: "https://www.techcorpevents.com",
+    providerSocial: {
       facebook: "https://facebook.com/techcorpevents",
       twitter: "https://twitter.com/techcorpevents",
       instagram: "https://instagram.com/techcorpevents",
       linkedin: "https://linkedin.com/company/techcorpevents",
     },
-    attendees: 450,
+    customers: 450,
     capacity: 800,
     registrationEndDate: "2024-04-14",
     ticketTypes: [
@@ -121,7 +121,7 @@ export const mockPublicEvents: PublicEvent[] = [
       {
         time: "01:00 PM",
         title: "Lunch Break",
-        description: "Networking lunch provided for all attendees",
+        description: "Networking lunch provided for all customers",
       },
       {
         time: "02:00 PM",
@@ -170,15 +170,15 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 149,
     featured: false,
     image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "Digital Marketing Association",
-    organizerDescription: "The Digital Marketing Association is dedicated to advancing the marketing profession through education, networking, and resources.",
-    organizerEmail: "info@digitalmarketingassoc.org",
-    organizerWebsite: "https://www.digitalmarketingassoc.org",
-    organizerSocial: {
+    provider: "Digital Marketing Association",
+    providerDescription: "The Digital Marketing Association is dedicated to advancing the marketing profession through education, networking, and resources.",
+    providerEmail: "info@digitalmarketingassoc.org",
+    providerWebsite: "https://www.digitalmarketingassoc.org",
+    providerSocial: {
       twitter: "https://twitter.com/digimktassoc",
       linkedin: "https://linkedin.com/company/digitalmarketingassociation",
     },
-    attendees: 320,
+    customers: 320,
     registrationEndDate: "2024-04-19",
     ticketTypes: [
       {
@@ -220,10 +220,10 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 25,
     featured: true,
     image: "https://images.pexels.com/photos/3823207/pexels-photo-3823207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "Wellness Collective",
-    organizerEmail: "contact@wellnesscollective.org",
-    organizerPhone: "+1 (555) 987-6543",
-    attendees: 650,
+    provider: "Wellness Collective",
+    providerEmail: "contact@wellnesscollective.org",
+    providerPhone: "+1 (555) 987-6543",
+    customers: 650,
     capacity: 1000,
     ticketTypes: [
       {
@@ -252,9 +252,9 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 0,
     featured: false,
     image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "Venture Capital Partners",
-    organizerWebsite: "https://www.vcpartners.com",
-    attendees: 200,
+    provider: "Venture Capital Partners",
+    providerWebsite: "https://www.vcpartners.com",
+    customers: 200,
     capacity: 250,
   },
   {
@@ -270,9 +270,9 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 199,
     featured: false,
     image: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "Code Academy",
-    organizerEmail: "workshops@codeacademy.com",
-    attendees: 75,
+    provider: "Code Academy",
+    providerEmail: "workshops@codeacademy.com",
+    customers: 75,
     capacity: 100,
   },
   {
@@ -289,13 +289,13 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 150,
     featured: true,
     image: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "SoundWave Productions",
-    organizerWebsite: "https://www.soundwaveproductions.com",
-    organizerSocial: {
+    provider: "SoundWave Productions",
+    providerWebsite: "https://www.soundwaveproductions.com",
+    providerSocial: {
       instagram: "https://instagram.com/soundwaveprod",
       twitter: "https://twitter.com/soundwaveprod",
     },
-    attendees: 5000,
+    customers: 5000,
     capacity: 7500,
     ticketTypes: [
       {
@@ -329,9 +329,9 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 275,
     featured: false,
     image: "https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "Healthcare Innovation Network",
-    organizerEmail: "events@healthcareinnovation.org",
-    attendees: 180,
+    provider: "Healthcare Innovation Network",
+    providerEmail: "events@healthcareinnovation.org",
+    customers: 180,
     capacity: 200,
   },
   {
@@ -347,9 +347,9 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 0,
     featured: false,
     image: "https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "Financial Literacy Foundation",
-    organizerWebsite: "https://www.finlitfoundation.org",
-    attendees: 250,
+    provider: "Financial Literacy Foundation",
+    providerWebsite: "https://www.finlitfoundation.org",
+    customers: 250,
     capacity: 500,
   },
   {
@@ -366,11 +366,11 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 45,
     featured: false,
     image: "https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "EcoStyle Collective",
-    organizerSocial: {
+    provider: "EcoStyle Collective",
+    providerSocial: {
       instagram: "https://instagram.com/ecostylecollective",
     },
-    attendees: 120,
+    customers: 120,
     capacity: 150,
   },
   {
@@ -387,10 +387,10 @@ export const mockPublicEvents: PublicEvent[] = [
     price: 15,
     featured: false,
     image: "https://images.pexels.com/photos/6624862/pexels-photo-6624862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    organizer: "Mental Health Alliance",
-    organizerEmail: "contact@mentalhealthalliance.org",
-    organizerPhone: "+1 (555) 234-5678",
-    attendees: 300,
+    provider: "Mental Health Alliance",
+    providerEmail: "contact@mentalhealthalliance.org",
+    providerPhone: "+1 (555) 234-5678",
+    customers: 300,
     capacity: 400,
   },
 ];

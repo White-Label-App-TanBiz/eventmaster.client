@@ -20,7 +20,7 @@ const Analytics: React.FC = () => {
       baseAmount: 45780,
     },
     {
-      title: "Customer Acquisition",
+      title: "Client Admin Acquisition",
       value: "+18.2%",
       description: "New client admins",
       trend: "up",

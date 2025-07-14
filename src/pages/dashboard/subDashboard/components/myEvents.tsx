@@ -8,7 +8,7 @@ const MyEvents: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("all");
 
-  // Mock events data for attendee
+  // Mock events data for customer
   const mockEvents = [
     {
       id: "1",
@@ -22,7 +22,7 @@ const MyEvents: React.FC = () => {
       status: "registered",
       ticketType: "VIP",
       price: 299,
-      organizer: "TechCorp Events",
+      provider: "TechCorp Events",
       registrationDate: "2024-02-10",
       checkInStatus: "not-checked-in",
       rating: null,
@@ -39,7 +39,7 @@ const MyEvents: React.FC = () => {
       status: "attended",
       ticketType: "Standard",
       price: 0,
-      organizer: "Marketing Pro",
+      provider: "Marketing Pro",
       registrationDate: "2024-02-15",
       checkInStatus: "checked-in",
       rating: 5,
@@ -56,7 +56,7 @@ const MyEvents: React.FC = () => {
       status: "attended",
       ticketType: "Early Bird",
       price: 150,
-      organizer: "Innovation Labs",
+      provider: "Innovation Labs",
       registrationDate: "2024-02-01",
       checkInStatus: "checked-in",
       rating: 4,
@@ -73,7 +73,7 @@ const MyEvents: React.FC = () => {
       status: "registered",
       ticketType: "Standard",
       price: 99,
-      organizer: "Dev Academy",
+      provider: "Dev Academy",
       registrationDate: "2024-02-20",
       checkInStatus: "not-checked-in",
       rating: null,
@@ -81,7 +81,7 @@ const MyEvents: React.FC = () => {
   ];
 
   const filteredEvents = mockEvents.filter((event) => {
-    const matchesSearch = event.title.toLowerCase().includes(searchTerm.toLowerCase()) || event.description.toLowerCase().includes(searchTerm.toLowerCase()) || event.organizer.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = event.title.toLowerCase().includes(searchTerm.toLowerCase()) || event.description.toLowerCase().includes(searchTerm.toLowerCase()) || event.provider.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = selectedStatus === "all" || event.status === selectedStatus;
     return matchesSearch && matchesStatus;
   });
@@ -238,7 +238,7 @@ const MyEvents: React.FC = () => {
                     </div>
                     <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-zinc-400">
                       <Users className="w-4 h-4" />
-                      <span>Organized by {event.organizer}</span>
+                      <span>Organized by {event.provider}</span>
                     </div>
                   </div>
 

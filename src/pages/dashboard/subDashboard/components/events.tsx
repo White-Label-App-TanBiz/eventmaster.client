@@ -27,10 +27,10 @@ const Events: React.FC = () => {
       location: "San Francisco Convention Center",
       type: "physical",
       status: "published",
-      attendees: 250,
-      maxAttendees: 500,
+      customers: 250,
+      maxCustomers: 500,
       price: 299,
-      organizer: "Michael Chen",
+      provider: "Michael Chen",
       ticketTypes: [
         { type: "Early Bird", price: 199, description: "Limited availability" },
         { type: "Standard", price: 299, description: "Regular admission" },
@@ -53,10 +53,10 @@ const Events: React.FC = () => {
       location: "Online",
       type: "virtual",
       status: "draft",
-      attendees: 0,
-      maxAttendees: 1000,
+      customers: 0,
+      maxCustomers: 1000,
       price: 0,
-      organizer: "Sarah Johnson",
+      provider: "Sarah Johnson",
       ticketTypes: [
         { type: "Free Access", price: 0, description: "Standard access" },
         { type: "Premium", price: 49, description: "Includes workshop materials and recordings" },
@@ -77,10 +77,10 @@ const Events: React.FC = () => {
       location: "New York City",
       type: "physical",
       status: "published",
-      attendees: 150,
-      maxAttendees: 200,
+      customers: 150,
+      maxCustomers: 200,
       price: 150,
-      organizer: "Michael Chen",
+      provider: "Michael Chen",
       ticketTypes: [
         { type: "Standard", price: 150, description: "Regular admission" },
         { type: "VIP", price: 250, description: "VIP access with product samples" },
@@ -212,8 +212,8 @@ const Events: React.FC = () => {
           <div className="text-sm text-gray-500 dark:text-zinc-400">Published</div>
         </div>
         <div className="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-gray-200 dark:border-zinc-800">
-          <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{mockEvents.reduce((sum, e) => sum + e.attendees, 0)}</div>
-          <div className="text-sm text-gray-500 dark:text-zinc-400">Total Attendees</div>
+          <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{mockEvents.reduce((sum, e) => sum + e.customers, 0)}</div>
+          <div className="text-sm text-gray-500 dark:text-zinc-400">Total Customers</div>
         </div>
         <div className="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-gray-200 dark:border-zinc-800">
           <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{mockEvents.filter((e) => e.type === "virtual").length}</div>
@@ -294,7 +294,7 @@ const Events: React.FC = () => {
                   <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-zinc-400">
                     <Users className="w-4 h-4" />
                     <span>
-                      {event.attendees} / {event.maxAttendees} attendees
+                      {event.customers} / {event.maxCustomers} customers
                     </span>
                   </div>
                 </div>

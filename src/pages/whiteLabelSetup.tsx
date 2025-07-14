@@ -1373,7 +1373,7 @@ DATABASE_URL=postgresql://${formData.dbUser || "postgres"}:${formData.dbPassword
                   </div>
                   <div>
                     <p className="font-medium text-gray-900 dark:text-white">Create your first event</p>
-                    <p className="text-sm text-gray-600 dark:text-zinc-400">Start creating events and inviting attendees to your platform.</p>
+                    <p className="text-sm text-gray-600 dark:text-zinc-400">Start creating events and inviting customers to your platform.</p>
                   </div>
                 </div>
               </div>

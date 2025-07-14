@@ -134,8 +134,8 @@ const EventRegistrationPage: React.FC = () => {
             ticketType: formData.ticketType,
             quantity: formData.quantity,
             total: calculateTotal(),
-            attendeeName: `${formData.firstName} ${formData.lastName}`,
-            attendeeEmail: formData.email,
+            customerName: `${formData.firstName} ${formData.lastName}`,
+            customerEmail: formData.email,
           },
         },
       });
@@ -194,7 +194,7 @@ const EventRegistrationPage: React.FC = () => {
           <div className={`flex items-center justify-center w-8 h-8 rounded-full ${currentStep >= 3 ? "bg-blue-700 text-white" : "bg-gray-200 dark:bg-zinc-700 text-gray-700 dark:text-zinc-300"}`}>3</div>
         </div>
         <div className="flex justify-between mt-2 text-sm text-gray-600 dark:text-zinc-400">
-          <span>Attendee Info</span>
+          <span>Customer Info</span>
           <span>Payment</span>
           <span>Confirmation</span>
         </div>
@@ -206,7 +206,7 @@ const EventRegistrationPage: React.FC = () => {
           <form onSubmit={handleSubmit}>
             {currentStep === 1 && (
               <div className="bg-white dark:bg-zinc-900 rounded-xl border border-gray-200 dark:border-zinc-800 p-6">
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Attendee Information</h2>
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Customer Information</h2>
 
                 <div className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

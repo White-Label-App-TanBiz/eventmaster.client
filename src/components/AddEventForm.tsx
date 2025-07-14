@@ -327,7 +327,7 @@ const AddEventForm: React.FC<AddEventFormProps> = ({ initialData, onSubmit, onCa
                 required
               />
             </div>
-            <p className="mt-1 text-sm text-gray-500 dark:text-zinc-400">This is the last date attendees can register for your event.</p>
+            <p className="mt-1 text-sm text-gray-500 dark:text-zinc-400">This is the last date customers can register for your event.</p>
           </div>
         </div>
       </div>
@@ -399,7 +399,7 @@ const AddEventForm: React.FC<AddEventFormProps> = ({ initialData, onSubmit, onCa
                 required
               />
             </div>
-            <p className="mt-1 text-sm text-gray-500 dark:text-zinc-400">Maximum number of attendees allowed for this event.</p>
+            <p className="mt-1 text-sm text-gray-500 dark:text-zinc-400">Maximum number of customers allowed for this event.</p>
           </div>
 
           <div className="space-y-4">

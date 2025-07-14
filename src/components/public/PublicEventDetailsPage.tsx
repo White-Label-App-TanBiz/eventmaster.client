@@ -135,7 +135,7 @@ const PublicEventDetailsPage: React.FC = () => {
               <div className="text-2xl font-bold text-gray-900 dark:text-white">{event.price === 0 ? "Free" : `$${event.price}`}</div>
               <div className="flex items-center space-x-1 text-gray-600 dark:text-zinc-400">
                 <Users className="w-5 h-5" />
-                <span>{event.attendees} attending</span>
+                <span>{event.customers} attending</span>
               </div>
             </div>
 
@@ -269,7 +269,7 @@ const PublicEventDetailsPage: React.FC = () => {
               <div className="text-center text-sm text-gray-500 dark:text-zinc-400">
                 {event.capacity && (
                   <p>
-                    {event.capacity - event.attendees} spots remaining out of {event.capacity}
+                    {event.capacity - event.customers} spots remaining out of {event.capacity}
                   </p>
                 )}
                 <p className="mt-1">Registration ends on {format(parseISO(event.registrationEndDate || event.date), "MMMM d, yyyy")}</p>
@@ -277,48 +277,48 @@ const PublicEventDetailsPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Organizer Info */}
+          {/* Provider Info */}
           <div className="bg-white dark:bg-zinc-900 rounded-xl border border-gray-200 dark:border-zinc-800 p-6">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Organizer</h2>
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Provider</h2>
             <div className="flex items-center space-x-4 mb-4">
-              {event.organizerImage ? (
-                <img src={event.organizerImage} alt={event.organizer} className="w-12 h-12 rounded-full object-cover" />
+              {event.providerImage ? (
+                <img src={event.providerImage} alt={event.provider} className="w-12 h-12 rounded-full object-cover" />
               ) : (
                 <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
-                  <span className="text-blue-700 dark:text-blue-400 text-xl font-bold">{event.organizer.charAt(0)}</span>
+                  <span className="text-blue-700 dark:text-blue-400 text-xl font-bold">{event.provider.charAt(0)}</span>
                 </div>
               )}
               <div>
-                <h3 className="font-medium text-gray-900 dark:text-white">{event.organizer}</h3>
-                <p className="text-sm text-gray-600 dark:text-zinc-400">Event Organizer</p>
+                <h3 className="font-medium text-gray-900 dark:text-white">{event.provider}</h3>
+                <p className="text-sm text-gray-600 dark:text-zinc-400">Event Provider</p>
               </div>
             </div>
 
-            {event.organizerDescription && <p className="text-sm text-gray-600 dark:text-zinc-400 mb-4">{event.organizerDescription}</p>}
+            {event.providerDescription && <p className="text-sm text-gray-600 dark:text-zinc-400 mb-4">{event.providerDescription}</p>}
 
             <div className="space-y-2">
-              {event.organizerEmail && (
+              {event.providerEmail && (
                 <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-zinc-400">
                   <Mail className="w-4 h-4" />
-                  <a href={`mailto:${event.organizerEmail}`} className="hover:text-blue-700 dark:hover:text-blue-400">
-                    {event.organizerEmail}
+                  <a href={`mailto:${event.providerEmail}`} className="hover:text-blue-700 dark:hover:text-blue-400">
+                    {event.providerEmail}
                   </a>
                 </div>
               )}
 
-              {event.organizerPhone && (
+              {event.providerPhone && (
                 <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-zinc-400">
                   <Phone className="w-4 h-4" />
-                  <a href={`tel:${event.organizerPhone}`} className="hover:text-blue-700 dark:hover:text-blue-400">
-                    {event.organizerPhone}
+                  <a href={`tel:${event.providerPhone}`} className="hover:text-blue-700 dark:hover:text-blue-400">
+                    {event.providerPhone}
                   </a>
                 </div>
               )}
 
-              {event.organizerWebsite && (
+              {event.providerWebsite && (
                 <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-zinc-400">
                   <Globe className="w-4 h-4" />
-                  <a href={event.organizerWebsite} target="_blank" rel="noopener noreferrer" className="hover:text-blue-700 dark:hover:text-blue-400 flex items-center">
+                  <a href={event.providerWebsite} target="_blank" rel="noopener noreferrer" className="hover:text-blue-700 dark:hover:text-blue-400 flex items-center">
                     <span>Website</span>
                     <ExternalLink className="w-3 h-3 ml-1" />
                   </a>
@@ -326,25 +326,25 @@ const PublicEventDetailsPage: React.FC = () => {
               )}
             </div>
 
-            {event.organizerSocial && (
+            {event.providerSocial && (
               <div className="mt-4 flex space-x-4">
-                {event.organizerSocial.facebook && (
-                  <a href={event.organizerSocial.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-zinc-400 hover:text-blue-700 dark:hover:text-blue-400">
+                {event.providerSocial.facebook && (
+                  <a href={event.providerSocial.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-zinc-400 hover:text-blue-700 dark:hover:text-blue-400">
                     <Facebook className="w-5 h-5" />
                   </a>
                 )}
-                {event.organizerSocial.twitter && (
-                  <a href={event.organizerSocial.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-zinc-400 hover:text-blue-700 dark:hover:text-blue-400">
+                {event.providerSocial.twitter && (
+                  <a href={event.providerSocial.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-zinc-400 hover:text-blue-700 dark:hover:text-blue-400">
                     <Twitter className="w-5 h-5" />
                   </a>
                 )}
-                {event.organizerSocial.instagram && (
-                  <a href={event.organizerSocial.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-zinc-400 hover:text-blue-700 dark:hover:text-blue-400">
+                {event.providerSocial.instagram && (
+                  <a href={event.providerSocial.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-zinc-400 hover:text-blue-700 dark:hover:text-blue-400">
                     <Instagram className="w-5 h-5" />
                   </a>
                 )}
-                {event.organizerSocial.linkedin && (
-                  <a href={event.organizerSocial.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-zinc-400 hover:text-blue-700 dark:hover:text-blue-400">
+                {event.providerSocial.linkedin && (
+                  <a href={event.providerSocial.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-zinc-400 hover:text-blue-700 dark:hover:text-blue-400">
                     <Linkedin className="w-5 h-5" />
                   </a>
                 )}

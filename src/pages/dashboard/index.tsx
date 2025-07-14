@@ -32,7 +32,7 @@ const DashboardPage: React.FC = () => {
       color: "text-blue-700 dark:text-blue-400",
     },
     {
-      title: "Active Customers",
+      title: "Active Client Admins",
       value: analytics.activeClientAdmins.toString(),
       change: "+15.3%",
       trend: "up",
@@ -48,8 +48,8 @@ const DashboardPage: React.FC = () => {
       color: "text-orange-600 dark:text-orange-400",
     },
     {
-      title: "Total Attendees",
-      value: analytics.totalAttendees.toLocaleString(),
+      title: "Total Customers",
+      value: analytics.totalCustomers.toLocaleString(),
       change: "+18.7%",
       trend: "up",
       icon: UserCheck,
@@ -66,11 +66,11 @@ const DashboardPage: React.FC = () => {
   ];
 
   const recentActivities = [
-    { action: "New Customer registered", company: "TechCorp Events", time: "2 hours ago" },
+    { action: "New Client Admin registered", company: "TechCorp Events", time: "2 hours ago" },
     { action: "Payment received", company: "Innovate Solutions", time: "4 hours ago" },
     { action: "API license renewed", company: "EventPro Agency", time: "6 hours ago" },
     { action: "New event created", company: "Global Events Ltd", time: "8 hours ago" },
-    { action: "Customer upgraded plan", company: "Event Masters", time: "12 hours ago" },
+    { action: "Client Admin upgraded plan", company: "Event Masters", time: "12 hours ago" },
   ];
 
   const revenueBreakdown = [
@@ -231,7 +231,7 @@ const DashboardPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="p-4 border border-gray-200 dark:border-zinc-700 rounded-lg hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors text-center cursor-pointer">
                   <Users className="w-6 h-6 text-blue-600 dark:text-blue-400 mx-auto mb-2" />
-                  <span className="text-sm font-medium text-gray-900 dark:text-white">Manage Organizers</span>
+                  <span className="text-sm font-medium text-gray-900 dark:text-white">Manage Providers</span>
                 </div>
                 <div className="p-4 border border-gray-200 dark:border-zinc-700 rounded-lg hover:border-emerald-300 dark:hover:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/10 transition-colors text-center cursor-pointer">
                   <Package className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mx-auto mb-2" />
@@ -249,8 +249,8 @@ const DashboardPage: React.FC = () => {
             </div>
           </div>
         );
-      case "organizer":
-        const organizerStats = [
+      case "provider":
+        const providerStats = [
           {
             title: "Total Events",
             value: "12",
@@ -260,7 +260,7 @@ const DashboardPage: React.FC = () => {
             color: "text-blue-600 dark:text-blue-400",
           },
           {
-            title: "Total Attendees",
+            title: "Total Customers",
             value: "1,250",
             change: "+125",
             trend: "up",
@@ -292,8 +292,8 @@ const DashboardPage: React.FC = () => {
             date: "2024-03-15",
             time: "09:00",
             location: "San Francisco Convention Center",
-            attendees: 250,
-            maxAttendees: 500,
+            customers: 250,
+            maxCustomers: 500,
           },
           {
             id: "2",
@@ -301,8 +301,8 @@ const DashboardPage: React.FC = () => {
             date: "2024-03-20",
             time: "14:00",
             location: "Online",
-            attendees: 180,
-            maxAttendees: 1000,
+            customers: 180,
+            maxCustomers: 1000,
           },
           {
             id: "3",
@@ -310,8 +310,8 @@ const DashboardPage: React.FC = () => {
             date: "2024-03-25",
             time: "18:00",
             location: "New York City",
-            attendees: 150,
-            maxAttendees: 200,
+            customers: 150,
+            maxCustomers: 200,
           },
         ];
 
@@ -325,11 +325,11 @@ const DashboardPage: React.FC = () => {
         return (
           <div className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Organizer Dashboard</h1>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Provider Dashboard</h1>
             </div>
             {/* Stats Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-              {organizerStats.map((stat, index) => {
+              {providerStats.map((stat, index) => {
                 const Icon = stat.icon;
                 const TrendIcon = stat.trend === "up" ? ArrowUpRight : ArrowDownRight;
                 return (
@@ -384,12 +384,12 @@ const DashboardPage: React.FC = () => {
                         <div className="flex items-center space-x-2">
                           <Users className="w-4 h-4" />
                           <span>
-                            {event.attendees} / {event.maxAttendees} attendees
+                            {event.customers} / {event.maxCustomers} customers
                           </span>
                         </div>
                       </div>
                       <div className="mt-4 w-full bg-gray-200 dark:bg-zinc-700 rounded-full h-2">
-                        <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${(event.attendees / event.maxAttendees) * 100}%` }}></div>
+                        <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${(event.customers / event.maxCustomers) * 100}%` }}></div>
                       </div>
                     </div>
                   ))}
@@ -399,7 +399,7 @@ const DashboardPage: React.FC = () => {
               <div className="bg-white dark:bg-zinc-900 p-4 lg:p-6 rounded-xl border border-gray-200 dark:border-zinc-800">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Recent Registrations</h2>
-                  <button onClick={() => showInfo("View All Attendees", "Navigating to attendees page.")} className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+                  <button onClick={() => showInfo("View All Customers", "Navigating to customers page.")} className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
                     View All
                   </button>
                 </div>
@@ -460,7 +460,7 @@ const DashboardPage: React.FC = () => {
             color: "text-blue-600 dark:text-blue-400",
           },
           {
-            title: "Total Attendees",
+            title: "Total Customers",
             value: "850",
             icon: Users,
             color: "text-emerald-600 dark:text-emerald-400",
@@ -480,8 +480,8 @@ const DashboardPage: React.FC = () => {
             date: "2024-03-15",
             time: "09:00",
             location: "San Francisco Convention Center",
-            attendees: 250,
-            maxAttendees: 500,
+            customers: 250,
+            maxCustomers: 500,
             role: "Check-in Manager",
           },
           {
@@ -490,9 +490,9 @@ const DashboardPage: React.FC = () => {
             date: "2024-03-20",
             time: "14:00",
             location: "Online",
-            attendees: 180,
-            maxAttendees: 1000,
-            role: "Attendee Support",
+            customers: 180,
+            maxCustomers: 1000,
+            role: "Customer Support",
           },
           {
             id: "3",
@@ -500,17 +500,17 @@ const DashboardPage: React.FC = () => {
             date: "2024-03-25",
             time: "18:00",
             location: "New York City",
-            attendees: 150,
-            maxAttendees: 200,
+            customers: 150,
+            maxCustomers: 200,
             role: "Event Assistant",
           },
         ];
 
         const adminRecentActivities = [
-          { action: "Checked in attendee", name: "John Smith", event: "Tech Conference 2024", time: "2 hours ago" },
+          { action: "Checked in customer", name: "John Smith", event: "Tech Conference 2024", time: "2 hours ago" },
           { action: "Answered support question", name: "Jane Doe", event: "Virtual Marketing Summit", time: "4 hours ago" },
           { action: "Updated event details", event: "Product Launch Event", time: "6 hours ago" },
-          { action: "Added new attendee", name: "Bob Wilson", event: "Tech Conference 2024", time: "8 hours ago" },
+          { action: "Added new customer", name: "Bob Wilson", event: "Tech Conference 2024", time: "8 hours ago" },
         ];
 
         return (
@@ -569,13 +569,13 @@ const DashboardPage: React.FC = () => {
                       </div>
                       <div className="mt-4">
                         <div className="flex items-center justify-between text-sm mb-1">
-                          <span className="text-gray-600 dark:text-zinc-400">Attendees</span>
+                          <span className="text-gray-600 dark:text-zinc-400">Customers</span>
                           <span className="font-medium text-gray-900 dark:text-white">
-                            {event.attendees} / {event.maxAttendees}
+                            {event.customers} / {event.maxCustomers}
                           </span>
                         </div>
                         <div className="w-full bg-gray-200 dark:bg-zinc-700 rounded-full h-2">
-                          <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${(event.attendees / event.maxAttendees) * 100}%` }}></div>
+                          <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${(event.customers / event.maxCustomers) * 100}%` }}></div>
                         </div>
                       </div>
                     </div>
@@ -626,11 +626,11 @@ const DashboardPage: React.FC = () => {
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Quick Actions</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 <button
-                  onClick={() => showInfo("Check-in Attendee", "Opening check-in interface.")}
+                  onClick={() => showInfo("Check-in Customer", "Opening check-in interface.")}
                   className="p-4 border border-gray-200 dark:border-zinc-700 rounded-lg hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors text-center"
                 >
                   <UserCheck className="w-6 h-6 text-blue-600 dark:text-blue-400 mx-auto mb-2" />
-                  <span className="text-sm font-medium text-gray-900 dark:text-white">Check-in Attendee</span>
+                  <span className="text-sm font-medium text-gray-900 dark:text-white">Check-in Customer</span>
                 </button>
                 <button
                   onClick={() => showInfo("View Events", "Navigating to events page.")}
@@ -640,11 +640,11 @@ const DashboardPage: React.FC = () => {
                   <span className="text-sm font-medium text-gray-900 dark:text-white">View Events</span>
                 </button>
                 <button
-                  onClick={() => showInfo("Manage Attendees", "Navigating to attendees page.")}
+                  onClick={() => showInfo("Manage Customers", "Navigating to customers page.")}
                   className="p-4 border border-gray-200 dark:border-zinc-700 rounded-lg hover:border-purple-300 dark:hover:border-purple-700 hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-colors text-center"
                 >
                   <Users className="w-6 h-6 text-purple-600 dark:text-purple-400 mx-auto mb-2" />
-                  <span className="text-sm font-medium text-gray-900 dark:text-white">Manage Attendees</span>
+                  <span className="text-sm font-medium text-gray-900 dark:text-white">Manage Customers</span>
                 </button>
                 <button
                   onClick={() => showInfo("Support Chat", "Opening support chat interface.")}
@@ -657,8 +657,8 @@ const DashboardPage: React.FC = () => {
             </div>
           </div>
         );
-      case "attendee":
-        const attendeeUpcomingEvents = [
+      case "customer":
+        const customerUpcomingEvents = [
           {
             id: "1",
             title: "Tech Conference 2024",
@@ -688,7 +688,7 @@ const DashboardPage: React.FC = () => {
             location: "Online",
             type: "virtual",
             price: 99,
-            organizer: "Dev Academy",
+            provider: "Dev Academy",
             rating: 4.8,
           },
           {
@@ -699,7 +699,7 @@ const DashboardPage: React.FC = () => {
             location: "Chicago Downtown",
             type: "physical",
             price: 25,
-            organizer: "Business Connect",
+            provider: "Business Connect",
             rating: 4.5,
           },
           {
@@ -710,7 +710,7 @@ const DashboardPage: React.FC = () => {
             location: "Online",
             type: "virtual",
             price: 0,
-            organizer: "Future Tech Institute",
+            provider: "Future Tech Institute",
             rating: 4.7,
           },
         ];
@@ -763,9 +763,9 @@ const DashboardPage: React.FC = () => {
                     View All <ArrowRight className="w-4 h-4 ml-1" />
                   </button>
                 </div>
-                {attendeeUpcomingEvents.length > 0 ? (
+                {customerUpcomingEvents.length > 0 ? (
                   <div className="space-y-4">
-                    {attendeeUpcomingEvents.map((event) => (
+                    {customerUpcomingEvents.map((event) => (
                       <div key={event.id} className="p-4 border border-gray-200 dark:border-zinc-700 rounded-lg hover:border-blue-300 dark:hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors">
                         <div className="flex items-start justify-between">
                           <div>
@@ -879,7 +879,7 @@ const DashboardPage: React.FC = () => {
                       </div>
                       <div className="flex items-center space-x-2">
                         <Users className="w-4 h-4" />
-                        <span>By {event.organizer}</span>
+                        <span>By {event.provider}</span>
                       </div>
                     </div>
                     <div className="flex items-center justify-between mb-4">

@@ -32,9 +32,9 @@ const InviteAdminForm: React.FC<InviteAdminFormProps> = ({ onSubmit, onCancel })
     { id: "events.create", name: "Create Events", description: "Can create new events", checked: false },
     { id: "events.edit", name: "Edit Events", description: "Can edit existing events", checked: false },
     { id: "events.delete", name: "Delete Events", description: "Can delete events", checked: false },
-    { id: "attendees.view", name: "View Attendees", description: "Can view attendee lists", checked: true },
-    { id: "attendees.manage", name: "Manage Attendees", description: "Can add/remove attendees", checked: false },
-    { id: "check-in.manage", name: "Manage Check-ins", description: "Can check in attendees", checked: false },
+    { id: "customers.view", name: "View Customers", description: "Can view customer lists", checked: true },
+    { id: "customers.manage", name: "Manage Customers", description: "Can add/remove customers", checked: false },
+    { id: "check-in.manage", name: "Manage Check-ins", description: "Can check in customers", checked: false },
     { id: "reports.view", name: "View Reports", description: "Can view event reports and analytics", checked: false },
     { id: "settings.view", name: "View Settings", description: "Can view event settings", checked: false },
     { id: "settings.edit", name: "Edit Settings", description: "Can modify event settings", checked: false },
@@ -101,7 +101,7 @@ const InviteAdminForm: React.FC<InviteAdminFormProps> = ({ onSubmit, onCancel })
 
   const permissionGroups = [
     { name: "Events", permissions: permissions.filter((p) => p.id.startsWith("events.")) },
-    { name: "Attendees", permissions: permissions.filter((p) => p.id.startsWith("attendees.") || p.id.startsWith("check-in.")) },
+    { name: "Customers", permissions: permissions.filter((p) => p.id.startsWith("customers.") || p.id.startsWith("check-in.")) },
     { name: "Reports & Settings", permissions: permissions.filter((p) => p.id.startsWith("reports.") || p.id.startsWith("settings.")) },
   ];
 
