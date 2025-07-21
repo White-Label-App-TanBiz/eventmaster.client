@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Building2, Eye, EyeOff, LogIn, Loader2, Code, ExternalLink } from "lucide-react";
-import { useAuth } from "../contexts/AuthContext";
-import { useNavigate, useLocation, Link } from "react-router-dom";
-import { useNotifications } from "../hooks/useNotifications";
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { Building2, Eye, EyeOff, LogIn, Loader2, Code, ExternalLink } from 'lucide-react';
+
+import { useAuth } from '@/contexts/hooks';
+import { useNotifications } from '@/hooks';
+import { mockDemoAccounts } from '@/data/mockData';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -10,13 +12,13 @@ const LoginPage: React.FC = () => {
   const { login, isAuthenticated } = useAuth();
   const { showError, showSuccess } = useNotifications();
 
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
-      const from = location.state?.from?.pathname || "/dashboard";
+      const from = location.state?.from?.pathname || '/dashboard';
       navigate(from, { replace: true });
     }
   }, [isAuthenticated, navigate, location]);
@@ -26,20 +28,20 @@ const LoginPage: React.FC = () => {
     setIsSubmitting(true);
 
     if (!formData.email.trim()) {
-      showError("Email required", "Please enter your email address.");
+      showError('Email required', 'Please enter your email address.');
       setIsSubmitting(false);
       return;
     }
 
     if (!formData.password.trim()) {
-      showError("Password required", "Please enter your password.");
+      showError('Password required', 'Please enter your password.');
       setIsSubmitting(false);
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      showError("Invalid email format", "Please enter a valid email address.");
+      showError('Invalid email format', 'Please enter a valid email address.');
       setIsSubmitting(false);
       return;
     }
@@ -47,15 +49,15 @@ const LoginPage: React.FC = () => {
     try {
       const success = await login(formData.email, formData.password);
       if (success) {
-        showSuccess("Login successful!", "Welcome back to EventMaster.");
-        const from = location.state?.from?.pathname || "/dashboard";
+        showSuccess('Login successful!', 'Welcome back to Younivent.');
+        const from = location.state?.from?.pathname || '/dashboard';
         navigate(from, { replace: true });
       } else {
-        showError("Login failed", "Invalid email or password. Please check your credentials and try again.");
+        showError('Login failed', 'Invalid email or password. Please check your credentials and try again.');
       }
     } catch (err) {
-      console.error("Login error:", err);
-      showError("Login error", "An unexpected error occurred during login. Please try again.");
+      console.error('Login error:', err);
+      showError('Login error', 'An unexpected error occurred during login. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -65,17 +67,9 @@ const LoginPage: React.FC = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const demoAccounts = [
-    { email: "admin@eventmaster.com", role: "Super Admin", description: "Full system access" },
-    { email: "client@techcorp.com", role: "Client Admin", description: "Manage product plans and providers" },
-    { email: "provider@events.com", role: "Provider", description: "Manage events and customers" },
-    { email: "staff@eventmaster.com", role: "Admin", description: "Help provider to manage events" },
-    { email: "customer@example.com", role: "Customer", description: "Register for events and receive notifications" },
-  ];
-
   const fillDemoAccount = (email: string) => {
-    setFormData({ email, password: "password123" });
-    showSuccess("Demo account filled", `Credentials for ${email} have been filled in.`);
+    setFormData({ email, password: 'password123' });
+    showSuccess('Demo account filled', `Credentials for ${email} have been filled in.`);
   };
 
   return (
@@ -88,7 +82,7 @@ const LoginPage: React.FC = () => {
               <Building2 className="w-8 h-8 text-white" />
             </div>
           </div>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900 dark:text-white">Welcome to EventMaster</h2>
+          <h2 className="mt-6 text-3xl font-bold text-gray-900 dark:text-white">Welcome to Younivent</h2>
           <p className="mt-2 text-sm text-gray-600 dark:text-zinc-400">Sign in to your account to continue</p>
         </div>
         {/* Login Form */}
@@ -105,7 +99,7 @@ const LoginPage: React.FC = () => {
                 autoComplete="email"
                 required
                 value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
+                onChange={(e) => handleInputChange('email', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-zinc-400 focus:ring-2 focus:ring-blue-700 focus:border-transparent transition-all"
                 placeholder="Enter your email"
                 disabled={isSubmitting}
@@ -119,16 +113,21 @@ const LoginPage: React.FC = () => {
                 <input
                   id="password"
                   name="password"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   autoComplete="current-password"
                   required
                   value={formData.password}
-                  onChange={(e) => handleInputChange("password", e.target.value)}
+                  onChange={(e) => handleInputChange('password', e.target.value)}
                   className="w-full px-3 py-2 pr-10 border border-gray-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-zinc-400 focus:ring-2 focus:ring-blue-700 focus:border-transparent transition-all"
                   placeholder="Enter your password"
                   disabled={isSubmitting}
                 />
-                <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-zinc-300" disabled={isSubmitting}>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-zinc-300"
+                  disabled={isSubmitting}
+                >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
@@ -159,7 +158,7 @@ const LoginPage: React.FC = () => {
             <Code className="w-6 h-6 text-blue-700 dark:text-blue-400" />
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">White-Label Installation</h3>
           </div>
-          <p className="text-sm text-gray-600 dark:text-zinc-400 mb-4">Want to install EventMaster on your own server with your own branding? Try our white-label installation flow demo.</p>
+          <p className="text-sm text-gray-600 dark:text-zinc-400 mb-4">Want to install Younivent on your own server with your own branding? Try our white-label installation flow demo.</p>
           <Link to="/white-label-setup" className="flex items-center justify-center space-x-2 w-full px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg text-sm transition-colors">
             <ExternalLink className="w-4 h-4" />
             <span>Try White-Label Setup Demo</span>
@@ -176,7 +175,7 @@ const LoginPage: React.FC = () => {
             </div>
           </div>
           <div className="mt-6 space-y-3">
-            {demoAccounts.map((account, index) => (
+            {mockDemoAccounts.map((account, index) => (
               <button
                 key={index}
                 onClick={() => fillDemoAccount(account.email)}
@@ -185,7 +184,7 @@ const LoginPage: React.FC = () => {
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">{account.role}</div>
+                    <div className="text-sm font-medium text-gray-900 dark:text-white">{account.roleDisplayName}</div>
                     <div className="text-xs text-gray-500 dark:text-zinc-400">{account.email}</div>
                     <div className="text-xs text-gray-400 dark:text-zinc-500">{account.description}</div>
                   </div>

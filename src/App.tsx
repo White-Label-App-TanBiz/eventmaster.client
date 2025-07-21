@@ -1,50 +1,44 @@
-import React, { Suspense, lazy } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { Loader2 } from "lucide-react";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import { LanguageProvider } from "./contexts/LanguageContext";
-import { PeriodProvider } from "./contexts/PeriodContext";
-import { AuthProvider } from "./contexts/AuthContext";
-import { CurrencyProvider } from "./contexts/CurrencyContext";
-import { useNotifications } from "./hooks/useNotifications";
-import NotificationSystem from "./components/NotificationSystem";
-import PublicLayout from "./components/public/PublicLayout";
-import ProtectedRoute from "./components/ProtectedRoute";
+import React, { Suspense, lazy } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { Loader2 } from 'lucide-react';
 
-const PublicEventsPage = lazy(() => import("./components/public/PublicEventsPage"));
-const PublicEventDetailsPage = lazy(() => import("./components/public/PublicEventDetailsPage"));
-const EventRegistrationPage = lazy(() => import("./components/public/EventRegistrationPage"));
-const RegistrationThankYouPage = lazy(() => import("./components/public/RegistrationThankYouPage"));
+import { AuthProvider, CurrencyProvider, LanguageProvider, PeriodProvider, ThemeProvider } from './contexts/provider';
 
-const CheckoutPage = lazy(() => import("./pages/checkout"));
-const ThankYouPage = lazy(() => import("./pages/thankYou"));
-const WhiteLabelSetupPage = lazy(() => import("./pages/whiteLabelSetup"));
+import { useNotifications } from './hooks';
+import { ProtectedRoute } from './tools';
 
-const LoginPage = lazy(() => import("./pages/login"));
-const DashboardPage = lazy(() => import("./pages/dashboard"));
-const SubDashboardPage = lazy(() => import("./pages/dashboard/subDashboard"));
+import { NotificationSystem } from './components/feedbacks';
+
+const EventsPage = lazy(() => import('./pages/events'));
+const EventDetailsPage = lazy(() => import('./pages/events/event-details'));
+const EventRegisterPage = lazy(() => import('./pages/events/event-details/register'));
+const EventThankYouPage = lazy(() => import('./pages/events/event-details/thank-you'));
+
+const CheckoutPage = lazy(() => import('./pages/checkout'));
+const ThankYouPage = lazy(() => import('./pages/thank-you'));
+const WhiteLabelSetupPage = lazy(() => import('./pages/white-label-setup'));
+
+const LoginPage = lazy(() => import('./pages/login'));
+const DashboardPage = lazy(() => import('./pages/dashboard'));
+const SubDashboardPage = lazy(() => import('./pages/dashboard/sub-dashboard'));
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      {/* Root redirect */}
       <Route path="/" element={<Navigate to="/events" replace />} />
-      {/* Public Routes */}
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/checkout/:planId" element={<CheckoutPage />} />
+      <Route path="/checkout/:plan_id" element={<CheckoutPage />} />
       <Route path="/thank-you" element={<ThankYouPage />} />
       <Route path="/white-label-setup" element={<WhiteLabelSetupPage />} />
-      {/* Public Event Routes */}
-      <Route path="/" element={<PublicLayout />}>
-        <Route path="events" element={<PublicEventsPage />} />
-        <Route path="events/:eventId" element={<PublicEventDetailsPage />} />
-        <Route path="events/:eventId/register" element={<EventRegistrationPage />} />
-        <Route path="events/:eventId/thank-you" element={<RegistrationThankYouPage />} />
+      <Route path="/events">
+        <Route index element={<EventsPage />} />
+        <Route path=":event_id" element={<EventDetailsPage />} />
+        <Route path=":event_id/register" element={<EventRegisterPage />} />
+        <Route path=":event_id/thank-you" element={<EventThankYouPage />} />
       </Route>
-      {/* New Dashboard */}
       <Route path="/dashboard" element={<ProtectedRoute />}>
         <Route index element={<DashboardPage />} />
-        <Route path=":submenuId" element={<SubDashboardPage />} />
+        <Route path=":submenu_id" element={<SubDashboardPage />} />
       </Route>
     </Routes>
   );

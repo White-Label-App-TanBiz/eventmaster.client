@@ -1,10 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback } from 'react';
+import type { LoadingState } from './types';
 
-export interface LoadingState {
-  [key: string]: boolean;
-}
-
-export const useLoadingState = () => {
+const useLoadingState = () => {
   const [loadingStates, setLoadingStates] = useState<LoadingState>({});
 
   const setLoading = useCallback((key: string, isLoading: boolean) => {
@@ -41,3 +38,5 @@ export const useLoadingState = () => {
     withLoading,
   };
 };
+
+export default useLoadingState;

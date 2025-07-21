@@ -1,14 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback } from 'react';
+import type { ConfirmationOptions } from './types';
 
-export interface ConfirmationOptions {
-  title: string;
-  message: string;
-  confirmText?: string;
-  cancelText?: string;
-  type?: "danger" | "warning" | "info" | "success";
-}
-
-export const useConfirmation = () => {
+const useConfirmation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [options, setOptions] = useState<ConfirmationOptions | null>(null);
   const [onConfirm, setOnConfirm] = useState<(() => void) | null>(null);
@@ -29,7 +22,7 @@ export const useConfirmation = () => {
         setOnConfirm(null);
         setOptions(null);
       } catch (error) {
-        console.error("Confirmation action failed:", error);
+        console.error('Confirmation action failed:', error);
       } finally {
         setIsLoading(false);
       }
@@ -52,3 +45,5 @@ export const useConfirmation = () => {
     handleCancel,
   };
 };
+
+export default useConfirmation;
